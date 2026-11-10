@@ -90,7 +90,7 @@ When the marketplace cannot be added (company network, proxy, policy that only a
 ```powershell
 # Windows PowerShell: one plugin (replace dev-workflow by any plugin name)
 $dir = "$env:USERPROFILE\.claude\skills"; New-Item -ItemType Directory -Force $dir | Out-Null
-Invoke-WebRequest https://github.com/RobinBeraud/claude-qa-skills/releases/latest/download/skills-dev-workflow.zip -OutFile "$env:TEMP\skills.zip"
+Invoke-WebRequest https://github.com/RobinBeraud/claude-qa-skills/releases/latest/download/skills-dev-workflow.zip -OutFile "$env:TEMP\skills.zip" -UseBasicParsing
 Expand-Archive "$env:TEMP\skills.zip" -DestinationPath $dir -Force
 ```
 
