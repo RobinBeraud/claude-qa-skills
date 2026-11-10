@@ -85,13 +85,32 @@ Every teammate who opens the project and trusts the folder gets the marketplace 
 
 ## 8. Without the plugin system
 
-Copy any skill folder (`plugins/<plugin>/skills/<skill>/`) into `~/.claude/skills/` for yourself or `.claude/skills/` in a repository. It is then available as `/<skill>`.
+When the marketplace cannot be added (company network, proxy, policy that only allows approved marketplaces, no `git` installed), install the skills as plain personal skills. Each release has one ZIP per plugin, ready to unzip into your skills folder:
+
+```powershell
+# Windows PowerShell: one plugin (replace dev-workflow by any plugin name)
+$dir = "$env:USERPROFILE\.claude\skills"; New-Item -ItemType Directory -Force $dir | Out-Null
+Invoke-WebRequest https://github.com/RobinBeraud/claude-qa-skills/releases/latest/download/skills-dev-workflow.zip -OutFile "$env:TEMP\skills.zip"
+Expand-Archive "$env:TEMP\skills.zip" -DestinationPath $dir -Force
+```
+
+```bash
+# macOS / Linux
+mkdir -p ~/.claude/skills && curl -sL https://github.com/RobinBeraud/claude-qa-skills/releases/latest/download/skills-dev-workflow.zip -o /tmp/skills.zip && unzip -o /tmp/skills.zip -d ~/.claude/skills
+```
+
+Restart Claude Code; the skills are available as `/<skill>` (for example `/pr-description`). `claude-qa-skills-all-skills.zip` contains all 119 at once, but install only what you use: every installed skill adds its description to Claude's context. You can also download the ZIPs by hand from the [releases page](https://github.com/RobinBeraud/claude-qa-skills/releases/latest) or copy any `plugins/<plugin>/skills/<skill>/` folder into `~/.claude/skills/` (yourself) or `.claude/skills/` (one repository).
 
 ## Troubleshooting
 
 | Symptom | Fix |
 |---|---|
 | `Permission denied (publickey)` when adding | `export CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` (PowerShell: `$env:CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1`) |
+| `/plugin` is unknown, or the command is typed in PowerShell | `/plugin ...` is typed **inside Claude Code** (after starting `claude`), not in the terminal; in the terminal use `claude plugin marketplace add ...`. Update Claude Code if `/plugin` is missing (`claude update`) |
+| Using Claude in the browser or the desktop chat, not Claude Code | Plugins are a Claude Code feature. In claude.ai, upload a skill as a ZIP in Settings > Capabilities > Skills (one skill folder per ZIP) |
+| `git` not found, timeout, proxy or TLS error when adding | Install Git for Windows, or set `HTTPS_PROXY`; otherwise use the ZIP install in section 8 |
+| Marketplace "not allowed" / blocked by policy | Your organisation restricts marketplaces (managed settings). Ask your admin to allow `RobinBeraud/claude-qa-skills` or to copy the plugins into the internal marketplace; meanwhile use the ZIP install in section 8 |
+| Added, but no skill appears | Install a plugin after adding the marketplace (`/plugin install dev-workflow@claude-qa-skills`), then restart Claude Code; check with `/plugin` > Installed |
 | A skill does not trigger | Call it explicitly with `/<plugin>:<skill>`, or mention the skill name in your request |
 | `python` not found when a skill runs a script | Install Python 3, or tell Claude to use `python3` |
 | Strange characters in script output on Windows | Use Windows Terminal; scripts print UTF-8 |
