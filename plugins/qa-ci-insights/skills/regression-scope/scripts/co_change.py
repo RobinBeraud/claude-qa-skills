@@ -13,6 +13,9 @@ import subprocess
 import sys
 from collections import Counter, defaultdict
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 TEST_HINT = re.compile(r"(^|/)(tests?|specs?|__tests__|e2e)(/|$)|(_test|_spec|Tests?|Spec|\.test|\.spec)\.\w+$|(^|/)test_[^/]+$", re.I)
 
 

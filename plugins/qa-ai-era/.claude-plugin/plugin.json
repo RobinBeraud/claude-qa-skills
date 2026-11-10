@@ -1,7 +1,7 @@
 {
   "name": "qa-ai-era",
   "description": "Quality when agents write the code: review AI-generated pull requests, write tests before the agent implements, demand evidence before done, audit AI-written tests, evaluate LLM features and red-team them against prompt injection.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"

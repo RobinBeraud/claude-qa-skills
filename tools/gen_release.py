@@ -1,7 +1,7 @@
 from _gen import write_plugin
 
 PLUGIN = "qa-release"
-DESC = "Ship with evidence: go/no-go release readiness reports, post-deployment smoke plans, quality flow metrics from Azure DevOps or Jira exports, a team test strategy on one page, and blameless root-cause analysis of escaped defects."
+DESC = "Ship with evidence: go/no-go release readiness reports, post-deployment smoke plans, quality flow metrics from Azure DevOps or Jira exports, and blameless root-cause analysis of escaped defects."
 
 S = {}
 
@@ -69,27 +69,6 @@ Column names are flags because every export differs; only `--created` and `--typ
 - A falling median time to fix with a rising backlog means easy bugs are fixed first.
 - Compare the same months year over year before claiming an effect (seasonality, holidays).
 - Never rank people with these numbers.
-""")
-
-S["test-strategy-doc"] = ("""Write a one-page team test strategy: quality goals, test pyramid and ownership per level, what runs where in CI, environments and data, definition of done for testing, exploratory testing cadence, and how AI agents are used in testing. Use when a team starts, reorganises, adopts AI coding agents, or nobody can say who tests what.""", r"""
-# Team test strategy (one page)
-
-## Sections
-1. **Quality goals**: 3 measurable goals (e.g. "no critical escaped defect per quarter", "PR feedback in < 15 min").
-2. **Levels and ownership**:
-   | Level | What it proves | Owner | Runs when | Target time |
-   |---|---|---|---|---|
-   | Unit | Logic, calculations | Devs | Every commit | < 5 min |
-   | API / integration | Contracts, persistence, permissions | Devs + QA | Every PR | < 15 min |
-   | E2E | Critical journeys only | QA | Every PR (smoke) / nightly (full) | < 30 min |
-   | Exploratory | Unknown risks | Whole team | Each feature, before release | time-boxed |
-   | Non-functional | Performance, security, accessibility | QA + Ops | Per release / NFR | - |
-3. **Environments and test data**: who owns them, how data is reset, anonymisation rules.
-4. **Definition of done (testing)**: acceptance criteria automated or explicitly manual, no new flaky test, bug fixes come with a regression test.
-5. **AI agents in testing**: tests written first from acceptance criteria, human review of agent-written tests, mutation score on critical modules, label on AI-assisted PRs.
-6. **Feedback loop**: metrics reviewed monthly (`qa-flow-metrics`), escaped defects analysed (`escaped-defect-rca`).
-
-Keep it to one page; link details elsewhere.
 """)
 
 S["escaped-defect-rca"] = ("""Run a blameless root-cause analysis of a defect that reached production: timeline, how it was introduced, why each test layer and review missed it, contributing factors, and concrete prevention actions (a test, a check, a process change) with owners. Use after a production incident or a customer-reported bug worth learning from.""", r"""

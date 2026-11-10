@@ -12,6 +12,9 @@ import zlib
 import xml.etree.ElementTree as ET
 from decimal import Decimal, ROUND_HALF_UP
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 RAM = "urn:un:unece:uncefact:data:standard:ReusableAggregateBusinessInformationEntity:100"
 RSM = "urn:un:unece:uncefact:data:standard:CrossIndustryInvoice:100"
 UDT = "urn:un:unece:uncefact:data:standard:UnqualifiedDataType:100"

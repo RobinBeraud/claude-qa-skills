@@ -11,6 +11,9 @@ import os
 import re
 import sys
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 UI_WORDS = re.compile(r"\b(click|clicks|clicked|button|type[sd]? into|scroll|tab|dropdown|checkbox|"
                       r"navigate to|page|field|textbox|xpath|css)\b", re.I)
 VAGUE = re.compile(r"\b(correctly|properly|works|as expected|appropriate|should work|etc\.?|ok)\b", re.I)

@@ -9,6 +9,11 @@ import re
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TITLES = {
+    "qa-test-strategy": "🗺️ Test strategy: decide what quality means and how to get it",
+    "qa-unit-testing": "🧪 Unit testing and TDD",
+    "qa-mutation-testing": "🧬 Mutation testing: do the tests really check anything?",
+    "dora-metrics": "📊 DORA metrics: software delivery performance",
+    "evidence-based-management": "🎯 Evidence-Based Management: value, not output",
     "qa-shift-left": "🧭 Shift-left: test before the code exists",
     "qa-automation": "🤖 Automation that stays green for the right reasons",
     "qa-explore-and-report": "🔎 Explore and report",

@@ -1,0 +1,5 @@
+action,admin,accountant,viewer
+invoice.create,allow,allow,deny
+invoice.delete,allow,allow,deny
+period.close,allow,deny,deny
+export.fec,allow,deny,deny

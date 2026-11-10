@@ -294,5 +294,97 @@ class CoChange(unittest.TestCase):
         self.assertIn("name matches src/invoice.py", out)
 
 
+STRYKER = {"schemaVersion": "1", "thresholds": {"high": 80, "low": 60}, "files": {
+    "src/fee.ts": {"language": "typescript", "source": "export const fee = (d: number) => d > 0 ? 40 : 0;\n",
+                   "mutants": [
+                       {"id": "1", "mutatorName": "EqualityOperator", "replacement": "d >= 0", "status": "Survived",
+                        "location": {"start": {"line": 1, "column": 30}, "end": {"line": 1, "column": 35}}},
+                       {"id": "2", "mutatorName": "ConditionalExpression", "replacement": "true", "status": "Killed",
+                        "location": {"start": {"line": 1, "column": 30}, "end": {"line": 1, "column": 35}}},
+                       {"id": "3", "mutatorName": "ArithmeticOperator", "replacement": "", "status": "NoCoverage",
+                        "location": {"start": {"line": 1, "column": 1}, "end": {"line": 1, "column": 2}}},
+                       {"id": "4", "mutatorName": "StringLiteral", "replacement": "", "status": "Timeout",
+                        "location": {"start": {"line": 1, "column": 1}, "end": {"line": 1, "column": 2}}}]}}}
+
+PIT = """<?xml version="1.0"?><mutations>
+<mutation detected="true" status="KILLED"><sourceFile>Fee.java</sourceFile><mutatedClass>Fee</mutatedClass><lineNumber>10</lineNumber><mutator>org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator</mutator><description>changed conditional boundary</description></mutation>
+<mutation detected="false" status="SURVIVED"><sourceFile>Fee.java</sourceFile><mutatedClass>Fee</mutatedClass><lineNumber>12</lineNumber><mutator>org.pitest.mutationtest.engine.gregor.mutators.MathMutator</mutator><description>Replaced integer addition with subtraction</description></mutation>
+</mutations>"""
+
+
+class MutationReport(unittest.TestCase):
+    m = load("qa-mutation-testing/skills/mutation-report-digest/scripts/mutation_report.py")
+
+    def test_stryker(self):
+        with tempfile.TemporaryDirectory() as d:
+            p = write(d, "mutation.json", json.dumps(STRYKER))
+            code, out, _ = run(self.m, [p])
+        self.assertEqual(code, 0)
+        self.assertIn("Mutation score: **50.0 %**", out)
+        self.assertIn("EqualityOperator: 1", out)
+        self.assertIn("src/fee.ts:1 [Survived, EqualityOperator]", out)
+
+    def test_pit(self):
+        with tempfile.TemporaryDirectory() as d:
+            code, out, _ = run(self.m, [write(d, "mutations.xml", PIT)])
+        self.assertIn("Mutation score: **50.0 %**", out)
+        self.assertIn("MathMutator: 1", out)
+
+
+class PyramidScan(unittest.TestCase):
+    m = load("qa-test-strategy/skills/test-pyramid-assessment/scripts/pyramid_scan.py")
+
+    def test_classification(self):
+        with tempfile.TemporaryDirectory() as d:
+            write(d, "tests/test_fee.py", "def test_a():\n    pass\n\ndef test_b():\n    pass\n")
+            write(d, "tests/integration/test_api.py", "import requests\n\ndef test_api():\n    requests.get('x')\n")
+            write(d, "e2e/login.spec.ts", "import { test } from '@playwright/test';\ntest('login', async () => {});\n")
+            write(d, "node_modules/x/test_ignored.py", "def test_x(): pass\n")
+            code, out, _ = run(self.m, [d, "--format", "json"])
+        data = json.loads(out)
+        self.assertEqual(data["levels"]["unit"], {"files": 1, "cases": 2})
+        self.assertEqual(data["levels"]["integration"]["files"], 1)
+        self.assertEqual(data["levels"]["e2e"]["files"], 1)
+
+
+class Dora(unittest.TestCase):
+    m = load("dora-metrics/skills/dora-metrics-calculator/scripts/dora_metrics.py")
+
+    def test_metrics(self):
+        dep = ("deployed_at,environment,caused_incident,restored_at,hotfix,first_commit_at\n"
+               "2026-03-02T10:00:00Z,production,no,,no,2026-03-01T10:00:00Z\n"
+               "2026-03-05T10:00:00Z,production,yes,2026-03-05T12:00:00Z,no,2026-03-03T10:00:00Z\n"
+               "2026-03-06T10:00:00Z,production,no,,yes,2026-03-06T08:00:00Z\n"
+               "2026-03-07T10:00:00Z,staging,yes,,no,2026-03-07T08:00:00Z\n"
+               "2026-04-01T10:00:00Z,production,no,,no,2026-03-31T22:00:00Z\n")
+        with tempfile.TemporaryDirectory() as d:
+            p = write(d, "d.csv", dep)
+            code, out, _ = run(self.m, ["--deployments", p, "--time-col", "deployed_at", "--env-col", "environment",
+                                        "--env", "production", "--failed-col", "caused_incident", "--restored-col",
+                                        "restored_at", "--rework-col", "hotfix", "--commit-col", "first_commit_at"])
+        self.assertEqual(code, 0)
+        self.assertIn("| 2026-03 | 3 | 0.10 | 24.0 h | 33 % | 2.0 h | 33 % |", out)
+        self.assertIn("| 2026-04 | 1 | 0.03 | 12.0 h | 0 % | - | 0 % |", out)
+        self.assertIn("**Whole window**: 4 deployments", out)
+
+
+class Ebm(unittest.TestCase):
+    m = load("evidence-based-management/skills/ebm-scorecard/scripts/ebm_scorecard.py")
+
+    def test_signals(self):
+        csv_text = ("period,kva,measure,value,direction\n"
+                    "2026-Q1,CV,CSAT,7.6,higher\n2026-Q2,CV,CSAT,7.9,higher\n"
+                    "2026-Q1,T2M,Lead time (days),21,lower\n2026-Q2,T2M,Lead time (days),17,lower\n"
+                    "2026-Q1,A2I,Innovation rate (%),30,higher\n2026-Q2,A2I,Innovation rate (%),24,higher\n")
+        with tempfile.TemporaryDirectory() as d:
+            code, out, _ = run(self.m, [write(d, "e.csv", csv_text), "--threshold", "5"])
+        self.assertEqual(code, 0)
+        self.assertIn("| CSAT (higher is better) | 7.6 (2026-Q1) | 7.6 (2026-Q1) | 7.9 (2026-Q2) | +3.9 % | +3.9 % | → flat |", out)
+        self.assertIn("-19.0 %", out)
+        self.assertIn("▲ improving", out)
+        self.assertIn("▼ worsening", out)
+        self.assertIn("Key value areas without any measure: Unrealized Value", out)
+
+
 if __name__ == "__main__":
     unittest.main()

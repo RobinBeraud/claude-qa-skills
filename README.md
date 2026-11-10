@@ -1,46 +1,98 @@
-<p align="center"><img src="assets/banner.svg" alt="claude-qa-skills: QA skills for Claude Code" width="100%"></p>
+<p align="center"><a href="https://robinberaud.github.io/claude-qa-skills/"><img src="docs/assets/banner.png" alt="claude-qa-skills: quality-engineering skills for Claude Code" width="100%"></a></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/skills-49-2962FF?style=flat-square" alt="Skills count">
-  <img src="https://img.shields.io/badge/plugins-7-7B61FF?style=flat-square" alt="Plugins">
-  <img src="https://img.shields.io/badge/Claude%20Code-plugin%20marketplace-FF7A00?style=flat-square" alt="Claude Code marketplace">
-  <img src="https://img.shields.io/badge/scripts-stdlib%20Python-16B3A6?style=flat-square" alt="Stdlib Python">
-  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License">
+  <a href="https://github.com/RobinBeraud/claude-qa-skills/stargazers"><img src="https://img.shields.io/github/stars/RobinBeraud/claude-qa-skills?style=for-the-badge&logo=github&color=FFC400&labelColor=0F1B33" alt="GitHub stars"></a>
+  <img src="https://img.shields.io/badge/skills-79-2962FF?style=for-the-badge&labelColor=0F1B33" alt="Skills count">
+  <img src="https://img.shields.io/badge/plugins-12-7B61FF?style=for-the-badge&labelColor=0F1B33" alt="Plugins">
+  <img src="https://img.shields.io/badge/dependencies-0-16B3A6?style=for-the-badge&labelColor=0F1B33" alt="Zero dependencies">
+  <img src="https://img.shields.io/badge/license-MIT-22C55E?style=for-the-badge&labelColor=0F1B33" alt="MIT">
 </p>
 
-**claude-qa-skills** is a library of quality-engineering skills for [Claude Code](https://code.claude.com): from a fuzzy user story to a go/no-go decision, for testers, developers and teams who now ship code written with AI agents.
+<p align="center">
+  <b><a href="https://robinberaud.github.io/claude-qa-skills/">🌐 Website & searchable catalogue</a></b> ·
+  <a href="docs/GETTING_STARTED.md">🚀 Getting started</a> ·
+  <a href="docs/GUIDE_FR.md">🇫🇷 Guide en français</a> ·
+  <a href="#-the-catalogue">📚 All skills</a> ·
+  <a href="CONTRIBUTING.md">🤝 Contribute</a>
+</p>
 
-It is built around one observation from the field: **coding agents make writing code cheap; verification becomes the bottleneck.** These skills make verification faster and harder to fake.
+---
 
-## Install
+**claude-qa-skills** turns [Claude Code](https://code.claude.com) into a senior quality engineer: **79 skills in 12 installable plugins**, from a fuzzy user story to a go/no-go decision. Test strategy, unit and mutation testing, exploratory testing, CI insights, **DORA metrics**, **Evidence-Based Management**, and the checks that matter now that **coding agents write the code**.
 
-In Claude Code:
+> **Why?** Agents made writing code cheap; verification became the bottleneck. These skills push Claude to plan before editing, write tests that can actually fail, show evidence before saying "done", and measure delivery instead of activity.
+
+## ⚡ Install in 30 seconds
 
 ```text
 /plugin marketplace add RobinBeraud/claude-qa-skills
-/plugin install qa-shift-left@claude-qa-skills
+/plugin install qa-test-strategy@claude-qa-skills
 ```
 
-Install only the plugins you need (see the catalogue below), or all of them. From a shell: `claude plugin marketplace add RobinBeraud/claude-qa-skills` then `claude plugin install <plugin>@claude-qa-skills`.
+Then just ask: *"Review the testability of this story"*, *"Which tests are flaky in these JUnit reports?"*, *"Compute our DORA metrics from this export"*. Claude picks the right skill, or call one directly: `/qa-ai-era:ai-pr-review`.
 
-Skills load automatically when your request matches their description ("review the testability of this story", "find our flaky tests"), or explicitly as `/<plugin>:<skill>`, e.g. `/qa-explore-and-report:bug-report`.
+<details>
+<summary><b>More ways to install</b> (shell, whole team, without plugins)</summary>
 
-> Private repository: everyone who installs needs read access on GitHub and a working `git` login (`gh auth login`).
+```bash
+# from a shell
+claude plugin marketplace add RobinBeraud/claude-qa-skills
+claude plugin install qa-unit-testing@claude-qa-skills
 
-**Without plugins**: copy any `plugins/<plugin>/skills/<skill>/` folder into `~/.claude/skills/` (personal) or `.claude/skills/` (project).
+# for the whole team: run once in your repo, commit .claude/settings.json
+claude plugin marketplace add RobinBeraud/claude-qa-skills --scope project
+claude plugin install qa-ai-era@claude-qa-skills --scope project
+```
 
-## What makes it different
+No GitHub SSH key? Set `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` first. Without the plugin system, copy any `plugins/<plugin>/skills/<skill>/` folder into `~/.claude/skills/`. Full guide: [docs/GETTING_STARTED.md](docs/GETTING_STARTED.md).
+</details>
 
-- **Real testing craft**: SFDIPOT and testing tours for exploration, FEW HICCUPPS oracles when there is no spec, RIMGEA bug advocacy, example mapping, decision tables, pairwise, property-based and mutation testing.
-- **Built for the agent era**: review AI-generated PRs, write tests before the agent implements, demand evidence before "done", audit AI-written tests, evaluate and red-team LLM features.
-- **Business software, not demo apps**: accounting invariants, EN 16931 / Factur-X e-invoice checks, money and rounding, dates and DST, multi-tenant isolation, RBAC matrices, data migrations, FR/ES/PT localisation.
-- **Scripts you can trust**: 10 bundled tools, Python standard library only (no `pip install`), each covered by unit tests in CI.
+## 🎬 Real tools, zero dependencies
 
-## Catalogue
+<p align="center"><img src="docs/assets/demo.gif" alt="Terminal demo: French identifiers validated, an e-invoice failing EN 16931 BR-CO-15, flaky tests found across CI runs, a permission bug flagged as SECURITY" width="860"></p>
 
-🐍 = ships a tested script.
+14 bundled scripts, **Python standard library only**, each covered by unit tests. Try them on the sample data in [`examples/`](examples) (commands in the [getting started guide](docs/GETTING_STARTED.md#5-try-the-scripts-on-the-examples-30-seconds)).
+
+## 🧭 Start with your role
+
+| You are | Install these plugins | Then ask |
+|---|---|---|
+| **QA engineer / tester** | `qa-shift-left` · `qa-explore-and-report` · `qa-automation` | "Write exploratory charters for the payment screen" |
+| **Developer** | `qa-unit-testing` · `qa-mutation-testing` · `qa-ai-era` | "Review this AI-generated PR against the ticket" |
+| **Tech lead / QA lead** | `qa-test-strategy` · `qa-ci-insights` · `qa-release` | "Write our one-page test strategy" |
+| **Agile coach / manager / PO** | `dora-metrics` · `evidence-based-management` · `qa-test-strategy` | "Define EBM goals and key value measures for our product" |
+| **ERP / finance / SaaS team** | `qa-business-apps` | "Check this Factur-X invoice against EN 16931" |
+
+## ✨ What makes it different
+
+- **Real testing craft**: SFDIPOT and testing tours, FEW HICCUPPS oracles, RIMGEA bug advocacy, example mapping, decision tables, pairwise, property-based and mutation testing, agile testing quadrants, risk storming.
+- **Built for the agent era**: review AI-generated PRs, write tests before the agent implements, demand evidence before "done", audit AI-written tests with fault injection, evaluate and red-team LLM features.
+- **Metrics that lead to decisions**: the five DORA metrics (with the 2024 rework rate), Evidence-Based Management across the four key value areas, quality flow metrics, and facilitation guides that resist gaming.
+- **Business software, not demo apps**: accounting invariants, EN 16931 / Factur-X checks, money and rounding, dates and DST, multi-tenant isolation, RBAC matrices, data migrations, FR/ES/PT localisation.
+- **Quality-checked itself**: every skill validated by `claude plugin validate` and a stricter in-repo validator; every script unit-tested.
+
+## 📚 The catalogue
+
+🐍 = ships a tested script. Browse and search it on the **[website](https://robinberaud.github.io/claude-qa-skills/)**.
 
 <!-- CATALOG:START -->
+### 🗺️ Test strategy: decide what quality means and how to get it
+
+Plugin **`qa-test-strategy`** (10 skills): `/plugin install qa-test-strategy@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [qa-maturity-assessment](plugins/qa-test-strategy/skills/qa-maturity-assessment/SKILL.md) | Run a lightweight QA and test maturity self-assessment for a team across 8 dimensions (strategy, shift-left, automation, CI feedback, exploratory testing, non-functional testing, defect... |  |
+| [quality-attribute-scenarios](plugins/qa-test-strategy/skills/quality-attribute-scenarios/SKILL.md) | Turn quality attributes into testable scenarios with a utility tree (from the ATAM method): source, stimulus, environment, artifact, response and response measure, prioritised by... |  |
+| [risk-storming-workshop](plugins/qa-test-strategy/skills/risk-storming-workshop/SKILL.md) | Facilitate a risk storming workshop (inspired by TestSphere and the risk storming format by Beren Van Daele) for a feature or release: quality aspects first, then risks per aspect, then... |  |
+| [shift-right-testing](plugins/qa-test-strategy/skills/shift-right-testing/SKILL.md) | Plan shift-right testing and verification in production: feature flags and progressive delivery (canary, percentage rollout), synthetic monitoring of key journeys, observability signals... |  |
+| [test-automation-roadmap](plugins/qa-test-strategy/skills/test-automation-roadmap/SKILL.md) | Decide what to automate next and in which order: score candidate test cases or journeys by frequency of execution, business risk, stability of the feature, cost to automate and flakiness... |  |
+| [test-data-strategy](plugins/qa-test-strategy/skills/test-data-strategy/SKILL.md) | Define how tests get their data: synthetic generation, anonymised production extracts, fixtures per test, seeded reference data, data reset between runs, GDPR constraints on personal... |  |
+| [test-environment-strategy](plugins/qa-test-strategy/skills/test-environment-strategy/SKILL.md) | Design the test environment strategy: which environments exist (ephemeral per PR, integration, staging, pre-production), what each is for, how they are created and torn down,... |  |
+| [test-pyramid-assessment](plugins/qa-test-strategy/skills/test-pyramid-assessment/SKILL.md) | Measure the real shape of a repository's test suite with a bundled stdlib script: count test files and test cases classified as unit, integration/API or end-to-end from paths, names and... | 🐍 |
+| [test-strategy-doc](plugins/qa-test-strategy/skills/test-strategy-doc/SKILL.md) | Write a one-page team test strategy: quality goals, test pyramid and ownership per level, what runs where in CI, environments and data, definition of done for testing, exploratory... |  |
+| [testing-quadrants-map](plugins/qa-test-strategy/skills/testing-quadrants-map/SKILL.md) | Map a team's current and missing testing activities onto the Agile Testing Quadrants (Brian Marick, Lisa Crispin and Janet Gregory): technology- vs business-facing, supporting the team... |  |
+
 ### 🧭 Shift-left: test before the code exists
 
 Plugin **`qa-shift-left`** (9 skills): `/plugin install qa-shift-left@claude-qa-skills`
@@ -57,9 +109,35 @@ Plugin **`qa-shift-left`** (9 skills): `/plugin install qa-shift-left@claude-qa-
 | [test-data-fr](plugins/qa-shift-left/skills/test-data-fr/SKILL.md) | Generate realistic but fake French business test data that passes real validation: SIREN/SIRET (Luhn), intra-EU VAT numbers, IBAN FR with RIB key, invoices with VAT rates 20/10/5.5/2.1... | 🐍 |
 | [test-design-techniques](plugins/qa-shift-left/skills/test-design-techniques/SKILL.md) | Derive test cases systematically with equivalence partitioning, boundary value analysis, decision tables, state transitions and cause-effect reasoning, then output a compact,... |  |
 
+### 🧪 Unit testing and TDD
+
+Plugin **`qa-unit-testing`** (6 skills): `/plugin install qa-unit-testing@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [assertion-quality](plugins/qa-unit-testing/skills/assertion-quality/SKILL.md) | Improve assertions so failures explain themselves and tests check what matters: precise matchers, whole-object comparison over field-by-field noise, custom assertion helpers, approximate... |  |
+| [parameterized-tests](plugins/qa-unit-testing/skills/parameterized-tests/SKILL.md) | Collapse repetitive unit tests into parameterised, table-driven tests (pytest.mark.parametrize, JUnit @ParameterizedTest, xUnit Theory/InlineData, Jest test.each, Go table tests) with... |  |
+| [tdd-red-green-refactor](plugins/qa-unit-testing/skills/tdd-red-green-refactor/SKILL.md) | Drive a change with test-driven development in short red-green-refactor cycles, with Claude as a disciplined pair: write one failing test, the minimum code to pass, refactor with tests... |  |
+| [test-doubles-chooser](plugins/qa-unit-testing/skills/test-doubles-chooser/SKILL.md) | Choose and write the right test double (dummy, stub, spy, mock, fake) for each collaborator of the unit under test, avoid over-mocking, and prefer fakes or real objects where cheap;... |  |
+| [testability-refactoring](plugins/qa-unit-testing/skills/testability-refactoring/SKILL.md) | Make hard-to-test or legacy code unit-testable with safe, small refactorings (Michael Feathers' seams): extract method, inject dependencies, wrap static and global calls, introduce an... |  |
+| [unit-test-writer](plugins/qa-unit-testing/skills/unit-test-writer/SKILL.md) | Write focused unit tests for a function, class or module: one behaviour per test, Arrange-Act-Assert, descriptive names, boundary and error cases, no I/O, fast and deterministic; in the... |  |
+
+### 🧬 Mutation testing: do the tests really check anything?
+
+Plugin **`qa-mutation-testing`** (6 skills): `/plugin install qa-mutation-testing@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [equivalent-mutant-check](plugins/qa-mutation-testing/skills/equivalent-mutant-check/SKILL.md) | Decide whether a surviving mutant is equivalent (no observable behaviour change, so no test can kill it) or a real gap, using reasoning about reachable inputs, side effects and... |  |
+| [mutant-killer-tests](plugins/qa-mutation-testing/skills/mutant-killer-tests/SKILL.md) | Write the smallest, clearest tests that kill a list of surviving mutants (from a report or a triage), one behaviour per test, reusing existing fixtures, then re-run mutation testing on... |  |
+| [mutation-report-digest](plugins/qa-mutation-testing/skills/mutation-report-digest/SKILL.md) | Summarise a mutation testing report (Stryker mutation-testing-report-schema JSON, used by StrykerJS, Stryker.NET and Stryker4s, or PIT mutations.xml) with a bundled stdlib script: score... | 🐍 |
+| [mutation-score-gate](plugins/qa-mutation-testing/skills/mutation-score-gate/SKILL.md) | Add a pragmatic mutation-testing quality gate to CI: incremental mutation on changed files only (Stryker --incremental / since, PIT with scmMutationCoverage or history), a threshold on... |  |
+| [mutation-testing-setup](plugins/qa-mutation-testing/skills/mutation-testing-setup/SKILL.md) | Set up mutation testing for a project: pick the tool for the stack (Stryker for JS/TS and .NET, PIT for Java/Kotlin, mutmut or cosmic-ray for Python, Infection for PHP, go-mutesting for... |  |
+| [surviving-mutant-triage](plugins/qa-mutation-testing/skills/surviving-mutant-triage/SKILL.md) | Triage surviving mutants one by one: classify each as missing assertion, missing test case, equivalent mutant, or dead/unreachable code, explain why the tests did not notice the change,... |  |
+
 ### 🤖 Automation that stays green for the right reasons
 
-Plugin **`qa-automation`** (10 skills): `/plugin install qa-automation@claude-qa-skills`
+Plugin **`qa-automation`** (9 skills): `/plugin install qa-automation@claude-qa-skills`
 
 | Skill | What it does | Script |
 |---|---|---|
@@ -67,7 +145,6 @@ Plugin **`qa-automation`** (10 skills): `/plugin install qa-automation@claude-qa
 | [api-test-suite](plugins/qa-automation/skills/api-test-suite/SKILL.md) | Generate an API test suite from an OpenAPI/Swagger spec or from example requests: happy paths, status codes, schema validation, authentication and authorization, validation errors,... |  |
 | [characterization-tests](plugins/qa-automation/skills/characterization-tests/SKILL.md) | Pin down the current behaviour of legacy or untested code with characterization (golden master / approval) tests before refactoring or letting an agent change it: capture outputs for a... |  |
 | [contract-testing](plugins/qa-automation/skills/contract-testing/SKILL.md) | Set up consumer-driven contract tests (Pact or schema-based) between a front end or service and the APIs it consumes, so breaking changes are caught in CI before deployment. |  |
-| [mutation-testing](plugins/qa-automation/skills/mutation-testing/SKILL.md) | Measure how good a test suite really is with mutation testing (Stryker for JS/TS/.NET, PIT for Java, mutmut or cosmic-ray for Python): run it on the risky module, read surviving mutants... |  |
 | [performance-test-k6](plugins/qa-automation/skills/performance-test-k6/SKILL.md) | Design and script load, stress and soak tests with k6 (or Locust/Gatling if the team uses them): realistic scenarios, think time, thresholds on p95/p99 and error rate, and a readable... |  |
 | [playwright-e2e](plugins/qa-automation/skills/playwright-e2e/SKILL.md) | Write or fix Playwright end-to-end tests (TypeScript or Python) with user-facing locators, web-first assertions, isolated test data and no fixed sleeps, then run them and iterate until... |  |
 | [property-based-tests](plugins/qa-automation/skills/property-based-tests/SKILL.md) | Write property-based tests (Hypothesis for Python, fast-check for JS/TS, jqwik or FsCheck for JVM/.NET) that state invariants and let the framework search for counter-examples. |  |
@@ -101,7 +178,7 @@ Plugin **`qa-ci-insights`** (5 skills): `/plugin install qa-ci-insights@claude-q
 
 ### 🚀 Release with evidence
 
-Plugin **`qa-release`** (5 skills): `/plugin install qa-release@claude-qa-skills`
+Plugin **`qa-release`** (4 skills): `/plugin install qa-release@claude-qa-skills`
 
 | Skill | What it does | Script |
 |---|---|---|
@@ -109,7 +186,30 @@ Plugin **`qa-release`** (5 skills): `/plugin install qa-release@claude-qa-skills
 | [post-deploy-smoke](plugins/qa-release/skills/post-deploy-smoke/SKILL.md) | Design a short post-deployment smoke and verification plan: the 10-20 checks that prove a deployment is healthy in minutes (critical journeys, integrations, background jobs, monitoring... |  |
 | [qa-flow-metrics](plugins/qa-release/skills/qa-flow-metrics/SKILL.md) | Compute quality flow metrics from a work-item export (Azure DevOps or Jira CSV): bugs created vs closed per month, open bug backlog, median time to fix, escape rate to production, reopen... | 🐍 |
 | [release-readiness](plugins/qa-release/skills/release-readiness/SKILL.md) | Produce a go/no-go release readiness report from test results, open bugs, story status and known risks: what was tested, what was not, open defects by severity, risks with mitigation,... |  |
-| [test-strategy-doc](plugins/qa-release/skills/test-strategy-doc/SKILL.md) | Write a one-page team test strategy: quality goals, test pyramid and ownership per level, what runs where in CI, environments and data, definition of done for testing, exploratory... |  |
+
+### 📊 DORA metrics: software delivery performance
+
+Plugin **`dora-metrics`** (5 skills): `/plugin install dora-metrics@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [dora-capabilities-plan](plugins/dora-metrics/skills/dora-capabilities-plan/SKILL.md) | Build an improvement plan from the DORA research capabilities (technical: CI, trunk-based development, test automation, deployment automation, loosely coupled architecture, database... |  |
+| [dora-data-sources](plugins/dora-metrics/skills/dora-data-sources/SKILL.md) | Find and define where each DORA metric's data comes from in the team's tools (Azure DevOps pipelines and releases, GitHub Actions and deployments API, GitLab environments, Jira,... |  |
+| [dora-metrics-calculator](plugins/dora-metrics/skills/dora-metrics-calculator/SKILL.md) | Compute the five DORA software delivery metrics from CSV exports with a bundled stdlib script: deployment frequency, change lead time, change fail rate, failed deployment recovery time... | 🐍 |
+| [dora-metrics-review](plugins/dora-metrics/skills/dora-metrics-review/SKILL.md) | Facilitate a monthly DORA metrics review that leads to learning instead of gaming: trends with context, throughput and instability read together, outliers explained by the team, one... |  |
+| [dora-quick-check](plugins/dora-metrics/skills/dora-quick-check/SKILL.md) | Run a quick, survey-based DORA estimate when no tooling data exists: ask the team the four classic questions (deployment frequency, lead time, change fail rate, recovery time) with the... |  |
+
+### 🎯 Evidence-Based Management: value, not output
+
+Plugin **`evidence-based-management`** (5 skills): `/plugin install evidence-based-management@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [ebm-experiment-loop](plugins/evidence-based-management/skills/ebm-experiment-loop/SKILL.md) | Run hypothesis-driven experiments in the EBM loop: from a goal and its measures, write a falsifiable hypothesis, define the smallest experiment, the measure and threshold that would... |  |
+| [ebm-goals](plugins/evidence-based-management/skills/ebm-goals/SKILL.md) | Define an Evidence-Based Management goal structure for a product or organisation: a strategic goal, intermediate goals and immediate tactical goals, each stated as a measurable outcome... |  |
+| [ebm-key-value-measures](plugins/evidence-based-management/skills/ebm-key-value-measures/SKILL.md) | Choose a small, balanced set of key value measures across the four EBM key value areas (Current Value, Unrealized Value, Time to Market, Ability to Innovate) from the EBM guide's... |  |
+| [ebm-review](plugins/evidence-based-management/skills/ebm-review/SKILL.md) | Facilitate an Evidence-Based Management review with stakeholders (monthly or quarterly): progress toward goals, key value area signals, results of experiments, decisions on investment... |  |
+| [ebm-scorecard](plugins/evidence-based-management/skills/ebm-scorecard/SKILL.md) | Track Evidence-Based Management measures over time with a bundled stdlib script: from a CSV of measurements (period, key value area, measure, value, direction) it computes the latest... | 🐍 |
 
 ### 🧠 Quality in the age of coding agents
 
@@ -141,39 +241,30 @@ Plugin **`qa-business-apps`** (8 skills): `/plugin install qa-business-apps@clau
 
 <!-- CATALOG:END -->
 
-## Bundled scripts
-
-| Script | What it does |
-|---|---|
-| `fr_test_data.py` | Fake but valid SIREN, SIRET, FR VAT numbers, IBANs; invoices with correct VAT rounding; identifier validation |
-| `pairwise.py` | Greedy all-pairs generator with exclusion constraints, verifies full pair coverage |
-| `gherkin_lint.py` | Lints `.feature` files: one When, no UI steps, no vague outcomes, outlines with Examples |
-| `export_test_cases.py` | Markdown/JSON test cases to Azure DevOps Test Plans or Xray CSV |
-| `flaky_tests.py` | Flaky tests across JUnit runs: flips, flip rate, top failure message |
-| `junit_digest.py` | JUnit totals, failures grouped by normalised message, slowest tests |
-| `co_change.py` | Tests most related to a change, from name matching and git co-change history |
-| `qa_metrics.py` | Bug flow, time to fix, escape rate, backlog by severity and age from ADO/Jira CSV |
-| `cii_check.py` | EN 16931 arithmetic and key fields of CII XML or Factur-X PDF |
-| `rbac_matrix.py` | Permission test cases from a roles x actions matrix; expected vs observed diff |
-
-## Repository layout
+## 🗂️ Repository layout
 
 ```
-.claude-plugin/marketplace.json      the marketplace (7 plugins)
-plugins/<plugin>/.claude-plugin/     plugin manifest
+.claude-plugin/marketplace.json      the marketplace (12 plugins)
+plugins/<plugin>/.claude-plugin/     plugin manifest (name, version)
 plugins/<plugin>/skills/<skill>/     SKILL.md (+ scripts/)
+examples/                            sample data for every script
+docs/                                website (GitHub Pages), guides EN/FR, images
 tests/                               unit tests of every script (stdlib unittest)
-tools/validate_skills.py             structure and front-matter checks (also run in CI)
-tools/build_readme.py                rebuilds the catalogue above
-tools/gen_*.py                       optional generators used to bootstrap the skills
+tools/                               validator, README/site builders, demo GIF and banner makers
 ```
 
-## Contributing
+## 🤝 Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). In short: one skill = one folder, a description that says **what** and **when to use**, concrete steps and an output format, scripts in stdlib Python with a test, then `python tools/validate_skills.py`, `python -m unittest discover -s tests` and `claude plugin validate .`.
+Ideas and pull requests are welcome: a skill you keep explaining to Claude, a missing test technique, a stack-specific variant. See [CONTRIBUTING.md](CONTRIBUTING.md). Before pushing: `python tools/validate_skills.py`, `python -m unittest discover -s tests`, `claude plugin validate .`.
 
-## Author
+## ⭐ Star history
 
-Made by [Robin Béraud-Sudreau](https://coach-agile.com), agile and DevOps coach, Head of AI Transformation, author of *Build Your Own AI Workforce*. Sister project: [hermes-skills](https://github.com/RobinBeraud/hermes-skills) for Hermes Agent.
+If these skills save you time, a star helps other testers and developers find them.
 
-MIT licence.
+<a href="https://star-history.com/#RobinBeraud/claude-qa-skills&Date"><img src="https://api.star-history.com/svg?repos=RobinBeraud/claude-qa-skills&type=Date" alt="Star history chart" width="600"></a>
+
+## 👤 Author
+
+Made by **[Robin Béraud-Sudreau](https://coach-agile.com)**: agile and DevOps coach, Head of AI Transformation, author of *Build Your Own AI Workforce*. Sister project: **[hermes-skills](https://github.com/RobinBeraud/hermes-skills)** for Hermes Agent.
+
+MIT licence. Not affiliated with Anthropic.

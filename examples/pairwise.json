@@ -1,0 +1,41 @@
+{
+  "parameters": {
+    "browser": [
+      "Chrome",
+      "Firefox",
+      "Safari",
+      "Edge"
+    ],
+    "os": [
+      "Windows",
+      "macOS",
+      "Linux"
+    ],
+    "role": [
+      "admin",
+      "accountant",
+      "viewer"
+    ],
+    "language": [
+      "fr",
+      "es",
+      "pt",
+      "en"
+    ]
+  },
+  "exclude": [
+    {
+      "browser": "Safari",
+      "os": "Windows"
+    },
+    {
+      "browser": "Safari",
+      "os": "Linux"
+    },
+    {
+      "browser": "Edge",
+      "os": "Linux"
+    }
+  ],
+  "seed": 3
+}

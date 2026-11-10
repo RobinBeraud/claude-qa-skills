@@ -12,6 +12,9 @@ import json
 import re
 import sys
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 
 def parse_markdown(text):
     cases, cur, header_seen = [], None, False

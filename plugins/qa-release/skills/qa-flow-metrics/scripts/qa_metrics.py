@@ -13,6 +13,9 @@ from collections import Counter, defaultdict
 from datetime import datetime, date
 from statistics import median
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 FORMATS = ["%Y-%m-%dT%H:%M:%S.%fZ", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%dT%H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%d",
            "%d/%m/%Y %H:%M:%S", "%d/%m/%Y %H:%M", "%d/%m/%Y", "%m/%d/%Y %I:%M %p", "%m/%d/%Y"]
 

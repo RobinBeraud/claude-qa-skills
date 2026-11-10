@@ -1,0 +1,5 @@
+<testsuite name="billing">
+  <testcase classname="Billing.Fees" name="late_fee_after_due_date" time="1.2"><failure message="TimeoutError: locator.click exceeded 5000ms"/></testcase>
+  <testcase classname="Billing.Export" name="csv_has_bom" time="0.3"><failure message="Expected 3 bytes BOM, got 0"/></testcase>
+  <testcase classname="Billing.Vat" name="rounding_half_up" time="0.1"/>
+</testsuite>

@@ -1,7 +1,7 @@
 {
   "name": "qa-shift-left",
   "description": "Test before the code exists: testable stories, example mapping, risk-based test plans, test design techniques, pairwise combinations, Gherkin, French business test data and test-case export to Azure Test Plans or Xray.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"

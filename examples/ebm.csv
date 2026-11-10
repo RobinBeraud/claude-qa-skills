@@ -1,0 +1,19 @@
+period,kva,measure,value,direction
+2026-Q1,CV,Customer satisfaction (CSAT),7.4,higher
+2026-Q2,CV,Customer satisfaction (CSAT),7.6,higher
+2026-Q3,CV,Customer satisfaction (CSAT),8.1,higher
+2026-Q1,UV,Satisfaction gap vs best competitor (pts),1.8,lower
+2026-Q2,UV,Satisfaction gap vs best competitor (pts),1.7,lower
+2026-Q3,UV,Satisfaction gap vs best competitor (pts),1.2,lower
+2026-Q1,T2M,Lead time (days),24,lower
+2026-Q2,T2M,Lead time (days),21,lower
+2026-Q3,T2M,Lead time (days),15,lower
+2026-Q1,T2M,Release frequency (per month),2,higher
+2026-Q2,T2M,Release frequency (per month),4,higher
+2026-Q3,T2M,Release frequency (per month),4,higher
+2026-Q1,A2I,Innovation rate (%),28,higher
+2026-Q2,A2I,Innovation rate (%),31,higher
+2026-Q3,A2I,Innovation rate (%),25,higher
+2026-Q1,A2I,Production incidents,9,lower
+2026-Q2,A2I,Production incidents,7,lower
+2026-Q3,A2I,Production incidents,7,lower

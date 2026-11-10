@@ -9,6 +9,9 @@ import argparse
 import csv
 import sys
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 ALLOW = {"allow", "yes", "y", "1", "x", "true", "oui", "o"}
 DENY = {"deny", "no", "n", "0", "-", "false", "non", ""}
 

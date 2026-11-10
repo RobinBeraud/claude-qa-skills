@@ -1,20 +1,35 @@
 {
   "name": "claude-qa-skills",
-  "description": "QA skills for Claude Code: shift-left test design, automation, exploratory testing, CI insights, release, AI-era quality and business software (ERP, e-invoicing, SaaS).",
+  "description": "Quality-engineering skills for Claude Code: test strategy, shift-left design, unit and mutation testing, automation, exploratory testing, CI insights, release, DORA metrics, Evidence-Based Management, AI-era quality and business software (ERP, e-invoicing, SaaS).",
   "owner": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"
   },
   "plugins": [
     {
+      "name": "qa-test-strategy",
+      "source": "./plugins/qa-test-strategy",
+      "description": "One-page strategy, testing quadrants, measured test pyramid, quality-attribute scenarios, risk storming, environments, test data, shift-right, automation roadmap, QA maturity."
+    },
+    {
       "name": "qa-shift-left",
       "source": "./plugins/qa-shift-left",
       "description": "Testable stories, example mapping, risk-based test plans, test design techniques, pairwise, Gherkin, French test data, export to Azure Test Plans / Xray."
     },
     {
+      "name": "qa-unit-testing",
+      "source": "./plugins/qa-unit-testing",
+      "description": "Unit tests with Arrange-Act-Assert, TDD red-green-refactor with an agent, test doubles, parameterised tests, testability refactoring, assertion quality."
+    },
+    {
+      "name": "qa-mutation-testing",
+      "source": "./plugins/qa-mutation-testing",
+      "description": "Mutation testing setup per stack, report digest, surviving and equivalent mutant triage, mutant-killer tests, CI gate on changed code."
+    },
+    {
       "name": "qa-automation",
       "source": "./plugins/qa-automation",
-      "description": "Playwright E2E, API suites, contract, property-based and mutation testing, k6, accessibility, visual regression, characterization tests, test-smell review."
+      "description": "Playwright E2E, API suites, contract and property-based testing, k6, accessibility, visual regression, characterization tests, test-smell review."
     },
     {
       "name": "qa-explore-and-report",
@@ -29,7 +44,17 @@
     {
       "name": "qa-release",
       "source": "./plugins/qa-release",
-      "description": "Go/no-go readiness, post-deployment smoke plans, quality flow metrics, one-page test strategy, escaped-defect analysis."
+      "description": "Go/no-go readiness, post-deployment smoke plans, quality flow metrics, escaped-defect analysis."
+    },
+    {
+      "name": "dora-metrics",
+      "source": "./plugins/dora-metrics",
+      "description": "The five DORA metrics: calculator, data sources, quick check, capability-based improvement plan, monthly review (AI adoption included)."
+    },
+    {
+      "name": "evidence-based-management",
+      "source": "./plugins/evidence-based-management",
+      "description": "EBM goals, key value measures across CV/UV/T2M/A2I, scorecard script, experiment loop, EBM reviews."
     },
     {
       "name": "qa-ai-era",

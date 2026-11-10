@@ -1,0 +1,20 @@
+{
+  "name": "qa-mutation-testing",
+  "description": "Measure whether tests would notice a bug: set up mutation testing per stack, read reports with a bundled script, triage surviving and equivalent mutants, write the tests that kill them, and gate pull requests on the mutation score of changed code.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "mutation-testing",
+    "stryker",
+    "pitest",
+    "test-quality"
+  ]
+}

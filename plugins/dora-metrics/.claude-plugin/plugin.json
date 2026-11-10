@@ -1,0 +1,20 @@
+{
+  "name": "dora-metrics",
+  "description": "Measure and improve software delivery performance with the five DORA metrics (deployment frequency, change lead time, failed deployment recovery time, change fail rate, deployment rework rate): calculator script, data sources per tool, quick check, capability-based improvement plan and a monthly review that resists gaming.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "dora",
+    "devops",
+    "delivery-performance",
+    "metrics"
+  ]
+}

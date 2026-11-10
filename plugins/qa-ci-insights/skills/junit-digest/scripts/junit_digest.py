@@ -11,6 +11,9 @@ import sys
 import xml.etree.ElementTree as ET
 from collections import defaultdict
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 
 def files_of(paths):
     out = []

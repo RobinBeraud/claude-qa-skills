@@ -1,7 +1,7 @@
 from _gen import write_plugin
 
 PLUGIN = "qa-automation"
-DESC = "Write automated checks that stay green for the right reasons: Playwright end-to-end, API suites from OpenAPI, contract tests, property-based and mutation testing, k6 load tests, accessibility and visual regression, characterization tests for legacy code, and test-smell reviews."
+DESC = "Write automated checks that stay green for the right reasons: Playwright end-to-end, API suites from OpenAPI, contract tests, property-based testing, k6 load tests, accessibility and visual regression, characterization tests for legacy code, and test-smell reviews."
 
 S = {}
 
@@ -95,26 +95,6 @@ S["property-based-tests"] = ("""Write property-based tests (Hypothesis for Pytho
 
 ## Output
 Test code, the properties in plain words, and any counter-example found with its explanation.
-""")
-
-S["mutation-testing"] = ("""Measure how good a test suite really is with mutation testing (Stryker for JS/TS/.NET, PIT for Java, mutmut or cosmic-ray for Python): run it on the risky module, read surviving mutants and write the missing assertions. Use when coverage is high but bugs still slip through, or to judge tests written by an AI agent.""", r"""
-# Mutation testing
-
-Line coverage says code ran; mutation score says a test would notice if it were wrong.
-
-## Steps
-1. Scope it: one module or package with business logic (full-repo runs are slow).
-2. Run the tool for the stack (`npx stryker run`, `mvn org.pitest:pitest-maven:mutationCoverage`, `mutmut run --paths-to-mutate src/billing`).
-3. Read **survived** mutants. For each, classify: missing assertion, missing case, equivalent mutant (no behaviour change), or dead code.
-4. Write the smallest test that kills each real survivor; delete dead code.
-5. Report score before and after.
-
-## Output
-| Mutant (file:line, change) | Why it survived | Action |
-plus the new tests and the score change.
-
-## Notes
-Useful as a quality gate on AI-generated tests: a suite that keeps 40 % of mutants alive was written to pass, not to check.
 """)
 
 S["performance-test-k6"] = ("""Design and script load, stress and soak tests with k6 (or Locust/Gatling if the team uses them): realistic scenarios, think time, thresholds on p95/p99 and error rate, and a readable results summary. Use before a release with performance risk, after an NFR is defined, or when users report slowness.""", r"""
@@ -224,4 +204,4 @@ You do not know if the current behaviour is right, but you know it is what custo
 Test harness, golden files, and "suspicious behaviours" list for the product owner.
 """)
 
-write_plugin(PLUGIN, DESC, S, ["playwright", "api-testing", "k6", "accessibility", "mutation-testing"])
+write_plugin(PLUGIN, DESC, S, ["playwright", "api-testing", "k6", "accessibility"])

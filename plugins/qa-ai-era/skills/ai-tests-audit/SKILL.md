@@ -9,7 +9,7 @@ High coverage from an agent can mean tests written to pass. Check that they can 
 
 ## Steps
 1. **Smell scan** (see `test-smell-review`): no assertions, mirrored expectations, over-mocking, snapshot dumps.
-2. **Fault injection**: in a scratch branch, make 5-10 small wrong changes to the code under test (flip a comparison, off-by-one, drop a rounding, skip a permission check, return early). Run the tests after each. Every change that survives is a missing assertion. Revert all changes afterwards. Use a real mutation tool when available (`mutation-testing`).
+2. **Fault injection**: in a scratch branch, make 5-10 small wrong changes to the code under test (flip a comparison, off-by-one, drop a rounding, skip a permission check, return early). Run the tests after each. Every change that survives is a missing assertion. Revert all changes afterwards. Use a real mutation tool when available (`mutation-testing-setup`, `surviving-mutant-triage`).
 3. **Criteria coverage**: map acceptance criteria to tests; list criteria without a test.
 4. **Determinism**: run the new tests 5 times and in random order.
 

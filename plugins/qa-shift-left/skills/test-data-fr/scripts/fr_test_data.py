@@ -13,6 +13,9 @@ import sys
 from datetime import date, timedelta
 from decimal import Decimal, ROUND_HALF_UP
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 CITIES = [("75002", "Paris"), ("69002", "Lyon"), ("33000", "Bordeaux"), ("13001", "Marseille"),
           ("31000", "Toulouse"), ("44000", "Nantes"), ("59000", "Lille"), ("67000", "Strasbourg"),
           ("35000", "Rennes"), ("06000", "Nice"), ("34000", "Montpellier"), ("21000", "Dijon")]

@@ -21,7 +21,8 @@
 python tools/validate_skills.py
 python -m unittest discover -s tests -v
 claude plugin validate .
-python tools/build_readme.py
+python tools/build_readme.py   # README catalogue
+python tools/build_site.py     # docs/index.html (GitHub Pages)
 ```
 
 Bump `version` in the plugin's `plugin.json` when you change its skills, so installed copies update.

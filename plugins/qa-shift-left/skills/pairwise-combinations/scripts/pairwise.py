@@ -14,6 +14,9 @@ import json
 import random
 import sys
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows consoles default to a legacy code page
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 
 def violates(row, rules):
     for rule in rules:
