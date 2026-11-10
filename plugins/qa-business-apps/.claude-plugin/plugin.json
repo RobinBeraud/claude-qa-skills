@@ -1,0 +1,22 @@
+{
+  "name": "qa-business-apps",
+  "description": "Test what breaks business software: accounting invariants, e-invoice (Factur-X/CII, EN 16931) consistency, money and rounding, dates and time zones, multi-tenant isolation, role permissions matrices, data migration reconciliation and localisation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "erp",
+    "accounting",
+    "e-invoicing",
+    "saas",
+    "rbac",
+    "i18n"
+  ]
+}

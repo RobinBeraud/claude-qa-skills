@@ -1,0 +1,20 @@
+{
+  "name": "qa-release",
+  "description": "Ship with evidence: go/no-go release readiness reports, post-deployment smoke plans, quality flow metrics from Azure DevOps or Jira exports, a team test strategy on one page, and blameless root-cause analysis of escaped defects.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "release",
+    "metrics",
+    "rca",
+    "strategy"
+  ]
+}

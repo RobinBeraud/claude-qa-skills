@@ -1,0 +1,21 @@
+{
+  "name": "qa-automation",
+  "description": "Write automated checks that stay green for the right reasons: Playwright end-to-end, API suites from OpenAPI, contract tests, property-based and mutation testing, k6 load tests, accessibility and visual regression, characterization tests for legacy code, and test-smell reviews.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "playwright",
+    "api-testing",
+    "k6",
+    "accessibility",
+    "mutation-testing"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "name": "claude-qa-skills",
+  "description": "QA skills for Claude Code: shift-left test design, automation, exploratory testing, CI insights, release, AI-era quality and business software (ERP, e-invoicing, SaaS).",
+  "owner": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "plugins": [
+    {
+      "name": "qa-shift-left",
+      "source": "./plugins/qa-shift-left",
+      "description": "Testable stories, example mapping, risk-based test plans, test design techniques, pairwise, Gherkin, French test data, export to Azure Test Plans / Xray."
+    },
+    {
+      "name": "qa-automation",
+      "source": "./plugins/qa-automation",
+      "description": "Playwright E2E, API suites, contract, property-based and mutation testing, k6, accessibility, visual regression, characterization tests, test-smell review."
+    },
+    {
+      "name": "qa-explore-and-report",
+      "source": "./plugins/qa-explore-and-report",
+      "description": "Exploratory charters (SFDIPOT, tours), session debriefs, FEW HICCUPPS oracles, bug reports, batch triage, repro minimisation."
+    },
+    {
+      "name": "qa-ci-insights",
+      "source": "./plugins/qa-ci-insights",
+      "description": "Flaky tests across runs, JUnit digests, regression scope from git history, CI failure triage, risk-weighted coverage gaps."
+    },
+    {
+      "name": "qa-release",
+      "source": "./plugins/qa-release",
+      "description": "Go/no-go readiness, post-deployment smoke plans, quality flow metrics, one-page test strategy, escaped-defect analysis."
+    },
+    {
+      "name": "qa-ai-era",
+      "source": "./plugins/qa-ai-era",
+      "description": "Review AI-generated PRs, tests first for agents, evidence before done, audit AI-written tests, LLM feature evals, prompt-injection red-teaming."
+    },
+    {
+      "name": "qa-business-apps",
+      "source": "./plugins/qa-business-apps",
+      "description": "Accounting invariants, e-invoice (Factur-X/CII) checks, money and rounding, dates and time zones, multi-tenant isolation, RBAC matrices, migrations, localisation."
+    }
+  ]
+}

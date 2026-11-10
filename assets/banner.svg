@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 320" role="img" aria-label="claude-qa-skills: QA skills for Claude Code">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0F1B33"/>
+      <stop offset="1" stop-color="#1B2D57"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#FF7A00"/>
+      <stop offset="1" stop-color="#FFC400"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="320" rx="24" fill="url(#bg)"/>
+  <circle cx="1040" cy="60" r="160" fill="#2962FF" opacity=".18"/>
+  <circle cx="1120" cy="300" r="120" fill="#7B61FF" opacity=".16"/>
+  <g font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif">
+    <text x="70" y="128" font-size="64" font-weight="800" fill="#FFFFFF">claude-<tspan fill="url(#accent)">qa</tspan>-skills</text>
+    <text x="72" y="178" font-size="26" fill="#C7D1E3">49 quality-engineering skills for Claude Code</text>
+    <text x="72" y="214" font-size="22" fill="#8FA3C8">from a fuzzy story to a go/no-go, in the age of coding agents</text>
+  </g>
+  <g font-family="Segoe UI, Inter, Helvetica, Arial, sans-serif" font-size="17" font-weight="700">
+    <rect x="70" y="248" width="120" height="38" rx="19" fill="#FF7A00"/><text x="130" y="273" text-anchor="middle" fill="#0F1B33">shift-left</text>
+    <rect x="202" y="248" width="124" height="38" rx="19" fill="#2962FF"/><text x="264" y="273" text-anchor="middle" fill="#fff">automation</text>
+    <rect x="338" y="248" width="110" height="38" rx="19" fill="#16B3A6"/><text x="393" y="273" text-anchor="middle" fill="#0F1B33">explore</text>
+    <rect x="460" y="248" width="70" height="38" rx="19" fill="#F2448B"/><text x="495" y="273" text-anchor="middle" fill="#fff">CI</text>
+    <rect x="542" y="248" width="100" height="38" rx="19" fill="#FFC400"/><text x="592" y="273" text-anchor="middle" fill="#0F1B33">release</text>
+    <rect x="654" y="248" width="86" height="38" rx="19" fill="#7B61FF"/><text x="697" y="273" text-anchor="middle" fill="#fff">AI era</text>
+    <rect x="752" y="248" width="150" height="38" rx="19" fill="#FFFFFF"/><text x="827" y="273" text-anchor="middle" fill="#0F1B33">business apps</text>
+  </g>
+  <g transform="translate(985 95)" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="60" cy="60" r="48" stroke="url(#accent)"/>
+    <path d="M37 62l16 16 32-36"/>
+    <path d="M96 96l42 42"/>
+  </g>
+</svg>
