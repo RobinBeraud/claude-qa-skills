@@ -1,0 +1,21 @@
+{
+  "name": "dev-web",
+  "description": "Front-end for business applications: Angular modernisation (standalone, signals, control flow, migration schematics), TypeScript strictness enabled step by step, accessibility to WCAG 2.2 and RGAA for French public-sector customers, and internationalisation of dates, numbers, currencies and translations.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "angular",
+    "typescript",
+    "accessibility",
+    "rgaa",
+    "i18n"
+  ]
+}

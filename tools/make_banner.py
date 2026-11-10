@@ -14,7 +14,8 @@ FONTS = [r"C:\Windows\Fonts\segoeuib.ttf", "/usr/share/fonts/truetype/dejavu/Dej
 REG = [r"C:\Windows\Fonts\segoeui.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]
 CHIPS = [("test strategy", (255, 122, 0), (15, 27, 51)), ("unit & mutation", (41, 98, 255), (255, 255, 255)),
          ("DORA", (22, 179, 166), (15, 27, 51)), ("EBM", (242, 68, 139), (255, 255, 255)),
-         ("AI-era QA", (123, 97, 255), (255, 255, 255)), ("ERP & e-invoicing", (255, 196, 0), (15, 27, 51))]
+         ("AI-era QA", (123, 97, 255), (255, 255, 255)), ("ERP & e-invoicing", (255, 196, 0), (15, 27, 51)),
+         (".NET · legacy · DevOps", (56, 189, 248), (15, 27, 51))]
 
 
 def f(paths, size):
@@ -42,7 +43,7 @@ def compose(w, h, skills, plugins, out):
     d.text((left + wc, int(150 * s)), "qa", font=f(FONTS, int(76 * s)), fill=(255, 160, 40))
     wq = d.textlength("qa", font=f(FONTS, int(76 * s)))
     d.text((left + wc + wq, int(150 * s)), "-skills", font=f(FONTS, int(76 * s)), fill=(255, 255, 255))
-    d.text((left, int(262 * s)), "%d quality-engineering skills for Claude Code" % skills, font=f(REG, int(32 * s)), fill=(210, 220, 240))
+    d.text((left, int(262 * s)), "%d QA & developer skills for Claude Code" % skills, font=f(REG, int(32 * s)), fill=(210, 220, 240))
     d.text((left, int(310 * s)), "%d installable plugins · tested stdlib scripts · MIT" % plugins, font=f(REG, int(24 * s)), fill=(150, 168, 200))
     x, y = left, int(388 * s)
     cf = f(FONTS, int(19 * s))

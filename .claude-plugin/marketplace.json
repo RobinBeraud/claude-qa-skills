@@ -1,6 +1,6 @@
 {
   "name": "claude-qa-skills",
-  "description": "Quality-engineering skills for Claude Code: test strategy, shift-left design, unit and mutation testing, automation, exploratory testing, CI insights, release, DORA metrics, Evidence-Based Management, AI-era quality and business software (ERP, e-invoicing, SaaS).",
+  "description": "Quality-engineering and developer skills for Claude Code: test strategy, shift-left design, unit and mutation testing, automation, exploratory testing, CI insights, release, DORA metrics, Evidence-Based Management, AI-era quality, business software (ERP, e-invoicing, SaaS), plus developer plugins for agentic workflow, .NET, Angular, SQL Server, legacy code, Azure DevOps delivery and security.",
   "owner": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"
@@ -65,6 +65,41 @@
       "name": "qa-business-apps",
       "source": "./plugins/qa-business-apps",
       "description": "Accounting invariants, e-invoice (Factur-X/CII) checks, money and rounding, dates and time zones, multi-tenant isolation, RBAC matrices, migrations, localisation."
+    },
+    {
+      "name": "dev-workflow",
+      "source": "./plugins/dev-workflow",
+      "description": "Explore before editing, plan in files, root-cause debugging, small PRs (size script), PR descriptions, self-review, receiving review, worktrees, handoff."
+    },
+    {
+      "name": "dev-dotnet",
+      "source": "./plugins/dev-dotnet",
+      "description": "Solution inventory (frameworks, support status, package drift), .NET Framework to .NET 10 upgrade, modern C#, .NET testing, EF Core performance and migrations, NuGet hygiene."
+    },
+    {
+      "name": "dev-web",
+      "source": "./plugins/dev-web",
+      "description": "Angular modernisation, TypeScript strictness, accessibility to WCAG 2.2 and RGAA 4.1, internationalisation of dates, numbers and currencies."
+    },
+    {
+      "name": "dev-data",
+      "source": "./plugins/dev-data",
+      "description": "SQL Server tuning, zero-downtime schema changes, multi-tenant isolation, GDPR (RGPD) by design."
+    },
+    {
+      "name": "dev-legacy",
+      "source": "./plugins/dev-legacy",
+      "description": "Hotspots from git history (script), strangler fig, TFVC to Git, release backports with a missing-fix report (script), dead-code removal."
+    },
+    {
+      "name": "dev-delivery",
+      "source": "./plugins/dev-delivery",
+      "description": "Azure Pipelines YAML, work-item linking and WIQL, Conventional Commits and changelog (script), stale PR triage (script), feature flags, blameless incident reviews."
+    },
+    {
+      "name": "dev-security",
+      "source": "./plugins/dev-security",
+      "description": "Secure code review (OWASP, .NET and Angular), STRIDE threat model, insecure defaults, supply chain and SBOM, secrets hygiene with a pre-commit scanner (script)."
     }
   ]
 }

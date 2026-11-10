@@ -2,8 +2,8 @@
 
 <p align="center">
   <a href="https://github.com/RobinBeraud/claude-qa-skills/stargazers"><img src="https://img.shields.io/github/stars/RobinBeraud/claude-qa-skills?style=for-the-badge&logo=github&color=FFC400&labelColor=0F1B33" alt="GitHub stars"></a>
-  <img src="https://img.shields.io/badge/skills-79-2962FF?style=for-the-badge&labelColor=0F1B33" alt="Skills count">
-  <img src="https://img.shields.io/badge/plugins-12-7B61FF?style=for-the-badge&labelColor=0F1B33" alt="Plugins">
+  <img src="https://img.shields.io/badge/skills-119-2962FF?style=for-the-badge&labelColor=0F1B33" alt="Skills count">
+  <img src="https://img.shields.io/badge/plugins-19-7B61FF?style=for-the-badge&labelColor=0F1B33" alt="Plugins">
   <img src="https://img.shields.io/badge/dependencies-0-16B3A6?style=for-the-badge&labelColor=0F1B33" alt="Zero dependencies">
   <img src="https://img.shields.io/badge/license-MIT-22C55E?style=for-the-badge&labelColor=0F1B33" alt="MIT">
 </p>
@@ -18,7 +18,7 @@
 
 ---
 
-**claude-qa-skills** turns [Claude Code](https://code.claude.com) into a senior quality engineer: **79 skills in 12 installable plugins**, from a fuzzy user story to a go/no-go decision. Test strategy, unit and mutation testing, exploratory testing, CI insights, **DORA metrics**, **Evidence-Based Management**, and the checks that matter now that **coding agents write the code**.
+**claude-qa-skills** turns [Claude Code](https://code.claude.com) into a senior quality engineer **and a senior developer on enterprise business software**: **119 skills in 19 installable plugins**, from a fuzzy user story to a go/no-go decision. Test strategy, unit and mutation testing, exploratory testing, CI insights, **DORA metrics**, **Evidence-Based Management**, the checks that matter now that **coding agents write the code**, and, new in v1.2, **7 developer plugins** for .NET, Angular, SQL Server, legacy code, Azure DevOps delivery and secure development.
 
 > **Why?** Agents made writing code cheap; verification became the bottleneck. These skills push Claude to plan before editing, write tests that can actually fail, show evidence before saying "done", and measure delivery instead of activity.
 
@@ -51,14 +51,36 @@ No GitHub SSH key? Set `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` first. Without the pl
 
 <p align="center"><img src="docs/assets/demo.gif" alt="Terminal demo: French identifiers validated, an e-invoice failing EN 16931 BR-CO-15, flaky tests found across CI runs, a permission bug flagged as SECURITY" width="860"></p>
 
-14 bundled scripts, **Python standard library only**, each covered by unit tests. Try them on the sample data in [`examples/`](examples) (commands in the [getting started guide](docs/GETTING_STARTED.md#5-try-the-scripts-on-the-examples-30-seconds)).
+21 bundled scripts, **Python standard library only**, each covered by unit tests. Try them on the sample data in [`examples/`](examples) (commands in the [getting started guide](docs/GETTING_STARTED.md#5-try-the-scripts-on-the-examples-30-seconds)).
+
+## 🛠️ New in v1.2: developer plugins
+
+Most popular skill libraries target greenfield web stacks. Business software lives elsewhere: a 15-year-old .NET solution half on .NET Framework, Angular three majors behind, SQL Server, Azure DevOps (sometimes still TFVC), several maintained release branches, multi-tenant SaaS, French accessibility (RGAA) and data-protection (GDPR) rules, pull requests that wait for weeks. The 40 `dev-*` skills give Claude the habits of a senior developer there.
+
+| Plugin | Highlights |
+|---|---|
+| `dev-workflow` | explore before editing, plan in files, root-cause debugging, **PR size budget (script)**, PR description from the diff, self-review, receiving review, worktrees, handoff |
+| `dev-dotnet` | **solution inventory with support status and package drift (script)**, .NET Framework to .NET 10, modern C#, xUnit/Testcontainers, EF Core performance and migrations, NuGet |
+| `dev-web` | Angular modernisation (standalone, signals, control flow), TypeScript strict step by step, WCAG 2.2 / RGAA 4.1, i18n with decimal commas and no-break spaces |
+| `dev-data` | SQL Server plans and Query Store, zero-downtime schema changes, multi-tenant isolation, GDPR by design |
+| `dev-legacy` | **hotspots and hidden coupling from git history (script)**, strangler fig, TFVC to Git, **fixes missing from release branches (script)**, dead code |
+| `dev-delivery` | Azure Pipelines YAML, AB# linking and WIQL, **Conventional Commits and release notes (script)**, **stale PR triage for Azure DevOps, GitHub, GitLab (script)**, feature flags, incident reviews |
+| `dev-security` | secure code review (.NET, Angular), STRIDE, insecure defaults, SBOM and licences, **pre-commit secret scanner (script)** |
+
+Built after studying the most-starred skill libraries (stars as of November 2026), keeping what makes them work and writing every skill from scratch: one hard rule and a red-flags list per discipline skill ([obra/superpowers](https://github.com/obra/superpowers), 315k), the skill format and scripts for deterministic work ([anthropics/skills](https://github.com/anthropics/skills), 192k), one plugin per domain ([wshobson/agents](https://github.com/wshobson/agents), 42k), plans that live in files ([planning-with-files](https://github.com/OthmanAdi/planning-with-files), 28k), stack specialists with checkpoints ([Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills), 12k) and security procedures ([trailofbits/skills](https://github.com/trailofbits/skills), 8k).
+
+```text
+/plugin install dev-workflow@claude-qa-skills
+/plugin install dev-dotnet@claude-qa-skills
+```
 
 ## 🧭 Start with your role
 
 | You are | Install these plugins | Then ask |
 |---|---|---|
 | **QA engineer / tester** | `qa-shift-left` · `qa-explore-and-report` · `qa-automation` | "Write exploratory charters for the payment screen" |
-| **Developer** | `qa-unit-testing` · `qa-mutation-testing` · `qa-ai-era` | "Review this AI-generated PR against the ticket" |
+| **Developer** | `dev-workflow` · `qa-unit-testing` · `qa-ai-era` + your stack: `dev-dotnet` · `dev-web` · `dev-data` | "Is this branch too big for one PR?" · "Plan the .NET 10 upgrade of this solution" |
+| **Team on a legacy codebase** | `dev-legacy` · `dev-delivery` · `dev-security` | "Which fixes from release/12.4 are missing in 13.0?" · "Triage our 90 open PRs" |
 | **Tech lead / QA lead** | `qa-test-strategy` · `qa-ci-insights` · `qa-release` | "Write our one-page test strategy" |
 | **Agile coach / manager / PO** | `dora-metrics` · `evidence-based-management` · `qa-test-strategy` | "Define EBM goals and key value measures for our product" |
 | **ERP / finance / SaaS team** | `qa-business-apps` | "Check this Factur-X invoice against EN 16931" |
@@ -239,12 +261,101 @@ Plugin **`qa-business-apps`** (8 skills): `/plugin install qa-business-apps@clau
 | [multi-tenant-isolation](plugins/qa-business-apps/skills/multi-tenant-isolation/SKILL.md) | Test that a multi-tenant SaaS never leaks or mixes data between tenants (customers, companies, subsidiaries): ID guessing on APIs, list filters, search indexes, exports, caches,... |  |
 | [permissions-matrix](plugins/qa-business-apps/skills/permissions-matrix/SKILL.md) | Turn a roles x actions permission matrix (CSV) into positive and negative test cases, and compare expected permissions with observed results from a test run to list every mismatch, with... | 🐍 |
 
+### 🧭 Developer workflow: explore, plan, debug, prove, ship small PRs
+
+Plugin **`dev-workflow`** (9 skills): `/plugin install dev-workflow@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [explore-before-editing](plugins/dev-workflow/skills/explore-before-editing/SKILL.md) | Build a working map of an unfamiliar codebase before changing it: entry points, layers, conventions, build and test commands, where the change belongs, and what could break. |  |
+| [parallel-worktrees](plugins/dev-workflow/skills/parallel-worktrees/SKILL.md) | Work on several branches or let several agents work in parallel without collisions using git worktrees: one folder per task, shared object store, per-worktree build outputs, safe cleanup. |  |
+| [plan-in-files](plugins/dev-workflow/skills/plan-in-files/SKILL.md) | Plan multi-step work in a markdown file kept in the repository: goal, constraints, task list with the test that proves each task, decisions log and progress, updated as you go so work... |  |
+| [pr-description](plugins/dev-workflow/skills/pr-description/SKILL.md) | Write a pull request description from the actual diff and the work item: why (problem and link), what changed, how it was tested with evidence, risks and rollback, what reviewers should... |  |
+| [receive-review](plugins/dev-workflow/skills/receive-review/SKILL.md) | Handle code review feedback rigorously: understand each comment, verify the claim against the code before agreeing, fix or push back with evidence, answer every thread, and avoid both... |  |
+| [root-cause-debugging](plugins/dev-workflow/skills/root-cause-debugging/SKILL.md) | Debug by finding the root cause before changing code: reproduce, read the full error, check what changed, form one hypothesis at a time and test it, write the failing test, then fix;... |  |
+| [self-review](plugins/dev-workflow/skills/self-review/SKILL.md) | Review your own diff before asking anyone else: read it as a reviewer would, file by file, against a checklist (correctness, edge cases, errors, tests, security, performance, naming,... |  |
+| [session-handoff](plugins/dev-workflow/skills/session-handoff/SKILL.md) | Hand off work between sessions, people or agents without losing context: a short handoff note with goal, state, what was verified, what is left, decisions, gotchas and the exact next... |  |
+| [small-pull-requests](plugins/dev-workflow/skills/small-pull-requests/SKILL.md) | Keep pull requests small and reviewable: measure a diff against a size budget with a bundled script (lines, files, areas touched, generated or lock files excluded), and split oversized... | 🐍 |
+
+### 🟣 .NET and C#: inventory, upgrade, modern C#, tests, EF Core, NuGet
+
+Plugin **`dev-dotnet`** (7 skills): `/plugin install dev-dotnet@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [dotnet-solution-inventory](plugins/dev-dotnet/skills/dotnet-solution-inventory/SKILL.md) | Inventory a .NET solution with a bundled stdlib script: every project with its SDK style, target frameworks with their support status (net48, net8.0, net10.0...), output type, project... | 🐍 |
+| [dotnet-testing](plugins/dev-dotnet/skills/dotnet-testing/SKILL.md) | Write effective .NET tests: xUnit, NUnit or MSTest conventions of the repo, Arrange-Act-Assert, test data builders, fakes over mocks, integration tests with WebApplicationFactory and... |  |
+| [dotnet-upgrade](plugins/dev-dotnet/skills/dotnet-upgrade/SKILL.md) | Plan and run an incremental upgrade from .NET Framework or an old .NET version to the current LTS: assessment (APIs, packages, blockers like System.Web, WCF, WebForms), SDK-style... |  |
+| [ef-core-migrations](plugins/dev-dotnet/skills/ef-core-migrations/SKILL.md) | Create and ship Entity Framework Core migrations safely: review the generated SQL, expand and contract for zero-downtime changes (add nullable column, backfill, switch, then drop), data... |  |
+| [ef-core-performance](plugins/dev-dotnet/skills/ef-core-performance/SKILL.md) | Find and fix Entity Framework Core performance problems: N+1 queries, missing AsNoTracking, client-side evaluation, cartesian explosion (AsSplitQuery), unbounded result sets, missing... |  |
+| [modern-csharp](plugins/dev-dotnet/skills/modern-csharp/SKILL.md) | Write and review modern, safe C#: nullable reference types enabled gradually, async/await without deadlocks or fire-and-forget, cancellation tokens, IDisposable and IAsyncDisposable,... |  |
+| [nuget-hygiene](plugins/dev-dotnet/skills/nuget-hygiene/SKILL.md) | Keep NuGet dependencies safe and tidy: list vulnerable, deprecated and outdated packages with the dotnet CLI, check licences, adopt Central Package Management, lock files for... |  |
+
+### 🌐 Web front-end: Angular, TypeScript, accessibility (RGAA), i18n
+
+Plugin **`dev-web`** (4 skills): `/plugin install dev-web@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [accessibility-rgaa](plugins/dev-web/skills/accessibility-rgaa/SKILL.md) | Check and fix web accessibility against WCAG 2.2 AA and the French RGAA 4.1 (mandatory for public-sector customers and large companies in France): semantic HTML, keyboard navigation and... |  |
+| [angular-modernize](plugins/dev-web/skills/angular-modernize/SKILL.md) | Modernise an Angular application step by step: version-by-version upgrades with ng update, standalone components, signals and the new control flow, inject() function, typed reactive... |  |
+| [i18n-l10n](plugins/dev-web/skills/i18n-l10n/SKILL.md) | Internationalise and localise business software correctly: externalised strings with ICU plural and gender rules, locale-aware dates, numbers and currencies (fr-FR decimal comma and... |  |
+| [typescript-strict](plugins/dev-web/skills/typescript-strict/SKILL.md) | Turn on TypeScript strictness in an existing codebase without a big-bang: measure errors per flag, enable flags one at a time (noImplicitAny, strictNullChecks, ...), fix by folder with a... |  |
+
+### 🗄️ Data: SQL Server, schema changes, multi-tenant, GDPR
+
+Plugin **`dev-data`** (4 skills): `/plugin install dev-data@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [gdpr-by-design](plugins/dev-data/skills/gdpr-by-design/SKILL.md) | Build GDPR (RGPD) compliance into code: map personal data in the schema, minimise what is collected, retention periods with automatic purge, pseudonymisation and encryption, access and... |  |
+| [multi-tenant-safety](plugins/dev-data/skills/multi-tenant-safety/SKILL.md) | Prevent data leaks between customers in multi-tenant applications: find every query, cache key, file path, search index, background job and log that must carry the tenant, check global... |  |
+| [sql-server-tuning](plugins/dev-data/skills/sql-server-tuning/SKILL.md) | Diagnose and fix slow SQL Server queries: read the actual execution plan, find scans, key lookups, spills and bad estimates, use Query Store to find regressions and plan changes, handle... |  |
+| [zero-downtime-schema](plugins/dev-data/skills/zero-downtime-schema/SKILL.md) | Change a production database schema without downtime or data loss: expand and contract, backward-compatible steps across deployments, batched backfills, online index operations, renames... |  |
+
+### 🏚️ Legacy code: hotspots, characterisation tests, strangler fig, TFVC, backports
+
+Plugin **`dev-legacy`** (5 skills): `/plugin install dev-legacy@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [codebase-hotspots](plugins/dev-legacy/skills/codebase-hotspots/SKILL.md) | Find where a legacy codebase hurts with a bundled stdlib script over git history: files ranked by change frequency x size (hotspots), number of authors, recent activity, and files that... | 🐍 |
+| [dead-code-removal](plugins/dev-legacy/skills/dead-code-removal/SKILL.md) | Remove dead code, unused dependencies and obsolete feature flags safely: find candidates with compiler and IDE analysis, coverage and production telemetry, verify nothing calls them... |  |
+| [release-backports](plugins/dev-legacy/skills/release-backports/SKILL.md) | Manage fixes across several maintained release branches: decide where a fix must go, cherry-pick or merge forward in a consistent direction, track which fixes are missing from which... | 🐍 |
+| [strangler-fig](plugins/dev-legacy/skills/strangler-fig/SKILL.md) | Replace a legacy system or module incrementally with the strangler fig pattern: facade or proxy in front, route one capability at a time to the new implementation, keep data in sync,... |  |
+| [tfvc-to-git](plugins/dev-legacy/skills/tfvc-to-git/SKILL.md) | Migrate source code from TFVC (Team Foundation Version Control) to Git in Azure DevOps: choose history depth (tip only, recent history or full via git-tfs), map TFVC branches to Git... |  |
+
+### 🚚 Delivery: Azure Pipelines, work items, changelog, stale PRs, flags, incidents
+
+Plugin **`dev-delivery`** (6 skills): `/plugin install dev-delivery@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [azure-pipelines](plugins/dev-delivery/skills/azure-pipelines/SKILL.md) | Write and fix Azure DevOps YAML pipelines: stages, jobs and templates for reuse, caching NuGet and npm, test results and coverage publishing, environments with approvals and checks,... |  |
+| [conventional-commits](plugins/dev-delivery/skills/conventional-commits/SKILL.md) | Write commit messages that tools and humans can use: Conventional Commits (feat, fix, refactor, perf, test, docs, build, ci, chore; scope; breaking changes), lint them and generate a... | 🐍 |
+| [feature-flags](plugins/dev-delivery/skills/feature-flags/SKILL.md) | Use feature flags to ship safely: choose the flag type (release, experiment, operational kill switch, permission or tenant), implement with a flag library or Azure App Configuration,... |  |
+| [incident-review](plugins/dev-delivery/skills/incident-review/SKILL.md) | Run a blameless post-incident review: factual timeline from logs and chat, impact in customer terms, contributing factors (not a single root cause or a person), what helped and what... |  |
+| [stale-pr-triage](plugins/dev-delivery/skills/stale-pr-triage/SKILL.md) | Triage the open pull request backlog: from an exported list (Azure DevOps, GitHub or GitLab JSON) compute age, idle time, draft status, reviewer load and size buckets with a bundled... | 🐍 |
+| [work-item-linking](plugins/dev-delivery/skills/work-item-linking/SKILL.md) | Link code to work items and query Azure DevOps Boards from the command line: AB#id mentions in commits and pull requests, branch naming by work item, az boards and az repos CLI commands,... |  |
+
+### 🔐 Secure development: code review, threat model, defaults, supply chain, secrets
+
+Plugin **`dev-security`** (5 skills): `/plugin install dev-security@claude-qa-skills`
+
+| Skill | What it does | Script |
+|---|---|---|
+| [insecure-defaults](plugins/dev-security/skills/insecure-defaults/SKILL.md) | Hunt for insecure defaults and configuration in an application and its infrastructure code: debug mode and detailed errors in production, permissive CORS, missing security headers, weak... |  |
+| [secrets-hygiene](plugins/dev-security/skills/secrets-hygiene/SKILL.md) | Keep secrets out of code, history and logs: scan a diff, staged files or a whole repository with a bundled stdlib scanner (cloud keys, tokens, connection strings with passwords, private... | 🐍 |
+| [secure-code-review](plugins/dev-security/skills/secure-code-review/SKILL.md) | Review a diff or a module for security flaws, focused on business web applications: broken access control and IDOR, injection (SQL, command, LDAP, XPath), XSS in Angular templates and... |  |
+| [supply-chain](plugins/dev-security/skills/supply-chain/SKILL.md) | Check the software supply chain of a project: generate an SBOM (CycloneDX or SPDX), list vulnerable and abandoned dependencies, licences incompatible with distribution to customers,... |  |
+| [threat-model](plugins/dev-security/skills/threat-model/SKILL.md) | Threat model a feature or architecture with STRIDE before building it: data flow diagram with trust boundaries, threats per element (spoofing, tampering, repudiation, information... |  |
+
 <!-- CATALOG:END -->
 
 ## 🗂️ Repository layout
 
 ```
-.claude-plugin/marketplace.json      the marketplace (12 plugins)
+.claude-plugin/marketplace.json      the marketplace (19 plugins)
 plugins/<plugin>/.claude-plugin/     plugin manifest (name, version)
 plugins/<plugin>/skills/<skill>/     SKILL.md (+ scripts/)
 examples/                            sample data for every script

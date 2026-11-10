@@ -1,0 +1,61 @@
+{
+  "value": [
+    {
+      "pullRequestId": 4012,
+      "title": "Round VAT per invoice line",
+      "createdBy": {
+        "displayName": "Camille Martin"
+      },
+      "creationDate": "2026-11-03T09:12:44.1234567Z",
+      "isDraft": false,
+      "targetRefName": "refs/heads/main",
+      "repository": {
+        "name": "billing"
+      },
+      "reviewers": [
+        {
+          "displayName": "Hugo Dubois",
+          "vote": 0
+        }
+      ]
+    },
+    {
+      "pullRequestId": 3550,
+      "title": "Spike: new PDF engine",
+      "createdBy": {
+        "displayName": "Lucas Bernard"
+      },
+      "creationDate": "2026-06-20T14:00:00Z",
+      "isDraft": true,
+      "targetRefName": "refs/heads/develop",
+      "repository": {
+        "name": "billing"
+      },
+      "reviewers": []
+    },
+    {
+      "pullRequestId": 2101,
+      "title": "Refactor customer search",
+      "createdBy": {
+        "displayName": "Camille Martin"
+      },
+      "creationDate": "2025-02-11T08:30:00Z",
+      "isDraft": false,
+      "targetRefName": "refs/heads/develop",
+      "repository": {
+        "name": "billing"
+      },
+      "reviewers": [
+        {
+          "displayName": "Hugo Dubois",
+          "vote": -5
+        },
+        {
+          "displayName": "[Billing]\\Reviewers",
+          "vote": 0,
+          "isContainer": true
+        }
+      ]
+    }
+  ]
+}

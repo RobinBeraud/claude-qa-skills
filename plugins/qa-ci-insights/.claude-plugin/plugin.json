@@ -1,7 +1,7 @@
 {
   "name": "qa-ci-insights",
   "description": "Make CI signals trustworthy: find flaky tests across runs, digest JUnit reports, pick the regression tests a change really needs from git history, triage CI failures by cause, and target coverage gaps by risk.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"

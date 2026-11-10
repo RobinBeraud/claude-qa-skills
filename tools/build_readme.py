@@ -21,6 +21,13 @@ TITLES = {
     "qa-release": "🚀 Release with evidence",
     "qa-ai-era": "🧠 Quality in the age of coding agents",
     "qa-business-apps": "🏦 Business software: ERP, accounting, e-invoicing, SaaS",
+    "dev-workflow": "🧭 Developer workflow: explore, plan, debug, prove, ship small PRs",
+    "dev-dotnet": "🟣 .NET and C#: inventory, upgrade, modern C#, tests, EF Core, NuGet",
+    "dev-web": "🌐 Web front-end: Angular, TypeScript, accessibility (RGAA), i18n",
+    "dev-data": "🗄️ Data: SQL Server, schema changes, multi-tenant, GDPR",
+    "dev-legacy": "🏚️ Legacy code: hotspots, characterisation tests, strangler fig, TFVC, backports",
+    "dev-delivery": "🚚 Delivery: Azure Pipelines, work items, changelog, stale PRs, flags, incidents",
+    "dev-security": "🔐 Secure development: code review, threat model, defaults, supply chain, secrets",
 }
 
 

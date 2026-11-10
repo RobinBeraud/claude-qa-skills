@@ -1,7 +1,7 @@
 {
   "name": "qa-unit-testing",
   "description": "Unit tests that document behaviour and catch regressions: writing tests with Arrange-Act-Assert, red-green-refactor with an agent, choosing the right test double, parameterised tests, breaking dependencies to make legacy code testable, and sharp assertions.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"

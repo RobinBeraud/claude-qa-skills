@@ -1,0 +1,21 @@
+{
+  "name": "dev-dotnet",
+  "description": ".NET and C# for enterprise codebases: solution inventory (target frameworks, package drift) with a bundled script, .NET Framework to modern .NET upgrades, modern C# idioms and async pitfalls, testing with xUnit/NUnit and Testcontainers, EF Core performance and safe migrations, and NuGet vulnerability and licence hygiene.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "dotnet",
+    "csharp",
+    "ef-core",
+    "nuget",
+    "migration"
+  ]
+}

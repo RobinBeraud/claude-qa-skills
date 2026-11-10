@@ -1,0 +1,16 @@
+[
+  {
+    "iid": 17,
+    "title": "Draft: payroll export v2",
+    "author": {
+      "username": "lea.d",
+      "name": "Léa Durand"
+    },
+    "created_at": "2026-09-14T07:00:00.000Z",
+    "updated_at": "2026-09-15T07:00:00.000Z",
+    "draft": true,
+    "reviewers": [],
+    "target_branch": "main",
+    "web_url": "https://gitlab.example.com/x/-/merge_requests/17"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "dev-security",
+  "description": "Secure development for business applications: security review of a diff (OWASP Top 10 in .NET and Angular), STRIDE threat modelling of a feature, insecure defaults hunting, software supply chain checks (SBOM, licences, dependency confusion), and secrets kept out of code with a bundled scanner for diffs and repositories.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "security",
+    "owasp",
+    "threat-modeling",
+    "sbom",
+    "secrets"
+  ]
+}

@@ -25,7 +25,7 @@ claude plugin marketplace add RobinBeraud/claude-qa-skills
 claude plugin install qa-unit-testing@claude-qa-skills
 ```
 
-Run `/plugin` to browse all 12 plugins, read their descriptions and install or disable them.
+Run `/plugin` to browse all 19 plugins, read their descriptions and install or disable them.
 
 > No GitHub SSH key on your machine? Set `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` before adding the marketplace.
 

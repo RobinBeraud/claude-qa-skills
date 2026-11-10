@@ -23,6 +23,13 @@ META = {
     "evidence-based-management": ("🎯", "#EAB308", "EBM"),
     "qa-ai-era": ("🧠", "#A855F7", "AI era"),
     "qa-business-apps": ("🏦", "#EF4444", "Business apps"),
+    "dev-workflow": ("🧭", "#38BDF8", "Dev workflow"),
+    "dev-dotnet": ("🟣", "#8B5CF6", ".NET"),
+    "dev-web": ("🌐", "#14B8A6", "Web"),
+    "dev-data": ("🗄️", "#F59E0B", "Data"),
+    "dev-legacy": ("🏚️", "#A16207", "Legacy"),
+    "dev-delivery": ("🚚", "#10B981", "Delivery"),
+    "dev-security": ("🔐", "#DC2626", "Security"),
 }
 
 
@@ -61,9 +68,9 @@ PAGE = r"""<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>claude-qa-skills · __NSKILLS__ QA skills for Claude Code</title>
-<meta name="description" content="__NSKILLS__ quality-engineering skills for Claude Code in __NPLUGINS__ installable plugins: test strategy, unit and mutation testing, automation, exploratory testing, CI insights, DORA metrics, Evidence-Based Management, AI-era QA, ERP and e-invoicing.">
-<meta property="og:title" content="claude-qa-skills · __NSKILLS__ QA skills for Claude Code">
+<title>claude-qa-skills · __NSKILLS__ QA and developer skills for Claude Code</title>
+<meta name="description" content="__NSKILLS__ quality-engineering skills for Claude Code in __NPLUGINS__ installable plugins: test strategy, unit and mutation testing, automation, exploratory testing, CI insights, DORA metrics, Evidence-Based Management, AI-era QA, ERP and e-invoicing, plus developer skills for .NET, Angular, SQL Server, legacy code, Azure DevOps and security.">
+<meta property="og:title" content="claude-qa-skills · __NSKILLS__ QA and developer skills for Claude Code">
 <meta property="og:description" content="Test strategy, unit and mutation testing, DORA, EBM, AI-era QA and business software, as installable Claude Code plugins.">
 <meta property="og:image" content="https://robinberaud.github.io/claude-qa-skills/assets/social-preview.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -225,9 +232,10 @@ PAGE = r"""<!doctype html>
   <table class="roles">
     <tr><th>You are</th><th>Install</th><th>Try asking</th></tr>
     <tr><td>QA engineer / tester</td><td><code>qa-shift-left</code> <code>qa-explore-and-report</code> <code>qa-automation</code></td><td>"Review the testability of this story" · "Write exploratory charters for the payment screen"</td></tr>
-    <tr><td>Developer</td><td><code>qa-unit-testing</code> <code>qa-mutation-testing</code> <code>qa-ai-era</code></td><td>"Write unit tests for invoice.py" · "Review this AI-generated PR against the ticket"</td></tr>
+    <tr><td>Developer</td><td><code>dev-workflow</code> <code>qa-unit-testing</code> <code>qa-ai-era</code> + your stack: <code>dev-dotnet</code> <code>dev-web</code> <code>dev-data</code></td><td>"Write unit tests for invoice.py" · "Review this AI-generated PR against the ticket"</td></tr>
     <tr><td>Tech lead / QA lead</td><td><code>qa-test-strategy</code> <code>qa-ci-insights</code> <code>qa-release</code></td><td>"Write our one-page test strategy" · "Which tests are flaky in these JUnit reports?"</td></tr>
     <tr><td>Agile coach / manager / PO</td><td><code>dora-metrics</code> <code>evidence-based-management</code> <code>qa-test-strategy</code></td><td>"Compute our DORA metrics from this export" · "Define EBM goals and key value measures"</td></tr>
+    <tr><td>Team on a legacy codebase</td><td><code>dev-legacy</code> <code>dev-delivery</code> <code>dev-security</code></td><td>"Where are the hotspots since January?" · "Which fixes from release/12.4 are missing in 13.0?"</td></tr>
     <tr><td>ERP / finance / SaaS team</td><td><code>qa-business-apps</code></td><td>"Check this Factur-X invoice" · "Generate permission tests from this roles matrix"</td></tr>
   </table>
 </div></section>

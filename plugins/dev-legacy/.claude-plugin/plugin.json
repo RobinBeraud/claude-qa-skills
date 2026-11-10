@@ -1,0 +1,21 @@
+{
+  "name": "dev-legacy",
+  "description": "Working safely in large, old codebases: hotspot analysis from git history (churn x size) with a bundled script, strangler-fig migrations (pin behaviour first with qa-automation:characterization-tests), TFVC to Git migration, fix backporting across release branches with a missing-commit report script, and dead-code removal.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "legacy",
+    "refactoring",
+    "tfvc",
+    "git",
+    "release-management"
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "number": 88,
+    "title": "fix: decimal comma in CSV import",
+    "author": {
+      "login": "ines-r"
+    },
+    "createdAt": "2026-10-28T10:00:00Z",
+    "updatedAt": "2026-11-09T16:00:00Z",
+    "isDraft": false,
+    "reviewRequests": [
+      {
+        "login": "tom-p"
+      }
+    ],
+    "additions": 42,
+    "deletions": 9
+  },
+  {
+    "number": 61,
+    "title": "feat: dunning letters",
+    "author": {
+      "login": "tom-p"
+    },
+    "createdAt": "2026-08-01T10:00:00Z",
+    "updatedAt": "2026-08-20T10:00:00Z",
+    "isDraft": false,
+    "reviewRequests": [],
+    "additions": 1840,
+    "deletions": 310
+  }
+]

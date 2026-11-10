@@ -1,0 +1,20 @@
+{
+  "name": "dev-workflow",
+  "description": "Agentic development discipline: explore before editing, plan in files, root-cause debugging (pairs with qa-ai-era:done-evidence-check), small pull requests with a size budget, PR descriptions from the diff, self-review, handling review feedback, parallel worktrees and session handoff.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "workflow",
+    "pull-requests",
+    "debugging",
+    "planning"
+  ]
+}

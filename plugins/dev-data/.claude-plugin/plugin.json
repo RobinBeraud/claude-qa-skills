@@ -1,0 +1,21 @@
+{
+  "name": "dev-data",
+  "description": "Data layer of business software: SQL Server query tuning from execution plans and Query Store, zero-downtime schema changes, multi-tenant isolation checks, and GDPR (RGPD) built into the code: minimisation, retention, pseudonymisation, rights of access and erasure, logs without personal data.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "sql-server",
+    "database",
+    "multi-tenant",
+    "gdpr",
+    "rgpd"
+  ]
+}

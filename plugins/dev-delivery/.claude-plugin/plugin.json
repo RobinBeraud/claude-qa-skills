@@ -1,0 +1,21 @@
+{
+  "name": "dev-delivery",
+  "description": "Delivery on Azure DevOps and GitLab: YAML pipelines with templates, caching and approvals, work-item linking and WIQL queries with the az CLI, Conventional Commits with a changelog and commit-lint script, stale pull request triage from exported PR lists with a bundled script, feature flags, and blameless incident reviews.",
+  "version": "1.2.0",
+  "author": {
+    "name": "Robin Béraud-Sudreau",
+    "url": "https://coach-agile.com"
+  },
+  "homepage": "https://github.com/RobinBeraud/claude-qa-skills",
+  "license": "MIT",
+  "keywords": [
+    "qa",
+    "testing",
+    "quality",
+    "azure-devops",
+    "gitlab",
+    "ci-cd",
+    "changelog",
+    "pull-requests"
+  ]
+}

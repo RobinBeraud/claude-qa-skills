@@ -1,7 +1,7 @@
 {
   "name": "evidence-based-management",
   "description": "Evidence-Based Management (Scrum.org): set strategic, intermediate and immediate tactical goals, choose key value measures across the four key value areas (current value, unrealized value, time to market, ability to innovate), track them with a scorecard script, run hypothesis-driven experiments and facilitate EBM reviews.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"

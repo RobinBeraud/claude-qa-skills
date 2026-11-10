@@ -1,7 +1,7 @@
 {
   "name": "qa-test-strategy",
   "description": "Design a test strategy that fits the product and the team: one-page strategy, agile testing quadrants, measured test pyramid, quality-attribute scenarios, risk storming, environments and test data strategy, shift-right testing in production, automation roadmap and QA maturity assessment.",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": {
     "name": "Robin Béraud-Sudreau",
     "url": "https://coach-agile.com"

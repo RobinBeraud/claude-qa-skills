@@ -8,7 +8,7 @@ import json
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-VERSION = "1.1.0"
+VERSION = "1.2.0"
 
 
 def write_plugin(plugin, plugin_desc, skills, keywords=()):

@@ -1,6 +1,6 @@
 # Guide de démarrage (français)
 
-**claude-qa-skills** est une bibliothèque de 79 compétences (« skills ») pour Claude Code dédiées à la qualité logicielle : stratégie de test, tests unitaires et de mutation, automatisation, test exploratoire, CI, mise en production, métriques DORA, Evidence-Based Management, QA à l'ère des agents IA, et logiciels de gestion (ERP, facturation électronique, SaaS).
+**claude-qa-skills** est une bibliothèque de 119 compétences (« skills ») pour Claude Code dédiées à la qualité logicielle et au développement : stratégie de test, tests unitaires et de mutation, automatisation, test exploratoire, CI, mise en production, métriques DORA, Evidence-Based Management, QA à l'ère des agents IA, et logiciels de gestion (ERP, facturation électronique, SaaS).
 
 Les skills sont rédigés en anglais, mais Claude vous **répond dans votre langue** : demandez en français, vous aurez une réponse en français.
 
@@ -19,7 +19,7 @@ Dans une session Claude Code :
 /plugin install qa-test-strategy@claude-qa-skills
 ```
 
-Tapez ensuite `/plugin` pour parcourir les 12 plugins et installer ceux qui vous servent.
+Tapez ensuite `/plugin` pour parcourir les 19 plugins et installer ceux qui vous servent.
 
 > Pas de clé SSH GitHub sur votre poste ? Définissez la variable `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1` avant d'ajouter le catalogue (PowerShell : `$env:CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1`).
 
@@ -70,3 +70,17 @@ Toutes les commandes d'exemple sont dans [GETTING_STARTED.md](GETTING_STARTED.md
 - **Vérifiez** ce que produit Claude : les skills exigent des preuves (commandes exécutées, sorties), lisez-les.
 - **Données** : n'envoyez jamais de données personnelles réelles ni de secrets ; les skills de données de test génèrent des données fictives valides.
 - Une idée de skill ? Ouvrez une issue ou une pull request sur le dépôt.
+
+## Nouveau en v1.2 : 7 plugins pour les développeurs
+
+| Plugin | Pour | À demander par exemple |
+|---|---|---|
+| `dev-workflow` | la discipline avec un agent | « Explore ce module avant de modifier », « Cette branche est-elle trop grosse pour une PR ? », « Rédige la description de PR » |
+| `dev-dotnet` | .NET et C# | « Fais l'inventaire de la solution », « Plan de migration vers .NET 10 », « Pourquoi cet endpoint EF Core est lent ? » |
+| `dev-web` | Angular et front | « Passe ce module en standalone et signals », « Audit RGAA de cet écran » |
+| `dev-data` | SQL Server et données | « Lis ce plan d'exécution », « Renomme cette colonne sans interruption », « Revue RGPD » |
+| `dev-legacy` | le code ancien | « Où sont les points chauds depuis janvier ? », « Migration TFVC vers Git », « Quels correctifs manquent dans la 13.0 ? » |
+| `dev-delivery` | Azure DevOps, GitLab | « Écris le pipeline YAML », « Génère les notes de version », « Trie les 90 PR ouvertes » |
+| `dev-security` | sécurité | « Revue sécurité de ce diff », « Modèle de menaces STRIDE », « Scanne les secrets avant commit » |
+
+Installation : `/plugin install dev-workflow@claude-qa-skills` (même marketplace, rien d'autre à ajouter).
